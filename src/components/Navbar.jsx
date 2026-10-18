@@ -1,0 +1,20 @@
+import { useNavigate } from "react-router-dom"
+import ButtonBox from "./ButtonBox"
+import "./components.css"
+import Section from "./Section"
+
+export default function Navbar() {
+    const nav = useNavigate();
+    return (
+        <>
+        <nav>
+            <Section children={<>
+                <img className="title-img" onClick={() => {nav('/')}} src="src\assets\cmsLogo.png" width={200}></img>
+                </>}></Section>
+            <Section children={<>
+                <ButtonBox buttonTextArr={["About Us", "Services"]} linkArr={["/about", "/services"]}></ButtonBox>
+                </>}></Section>
+        </nav>
+        </>
+    )
+}

@@ -1,0 +1,40 @@
+.section {
+    padding: 10px;
+}
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid black;
+    background-color: bisque;
+    box-shadow: 5px 1px 20px 3px;
+}
+.title-img {
+    transition: background-color 0.2s;
+}
+.title-img:hover {
+    cursor: pointer;
+    background-color: antiquewhite;
+}
+nav .buttonBox {
+    display: flex;
+    flex-direction: row;
+    gap: 10vw;
+    margin-right: 20px;
+    border: 2px solid black;
+    padding: 10px;
+    background-color: white;
+    
+}
+a {
+    text-decoration: none;
+    color: black;
+    transition: color 0.2s, background-color 0.2s;
+    padding: 10px;
+}
+a:hover {
+    color: white;
+    background-color: darkgray;
+}
+
