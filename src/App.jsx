@@ -7,17 +7,19 @@ import './App.css'
 import Navbar from './components/Navbar'
 import Home from './pages/home'
 import Footer from './components/Footer'
+import PageNotFound from './pages/pageNotFound'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-   
+    
     <BrowserRouter>
      <Navbar/>
     <Routes>
       <Route path='/' element={<Home/>}/>
+      <Route path='*' element={<PageNotFound/>}/>
     </Routes>
     <Footer/>
     </BrowserRouter>

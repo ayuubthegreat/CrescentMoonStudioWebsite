@@ -1,1 +1,6 @@
 
+body {
+  font-family: "Crimson Text", serif;
+  background: linear-gradient(180deg, rgb(3, 3, 3), rgb(215, 231, 241));
+  background-repeat: no-repeat;
+}
