@@ -1,5 +1,61 @@
-.section {
+.center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding: 10px;
+}
+.title-section {
+    border-bottom: 10px solid gray;
+   
+}
+nav .section {
+    margin-bottom: 0;
+}
+.section {
+     margin-bottom: 30px;
+}
+.section-header {
+    border: 2px solid black;
+    padding: 30px;
+    width: 60%;
+    text-align: left;
+    background-color: white;
+    opacity: 0.8;
+    line-height: normal;
+}
+.split-section {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 0.5fr));
+}
+.split-section .section {
+    border-right: 5px solid gray;
+    border-left: 5px solid gray;
+}
+.full .section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: wheat;
+}
+.titleDesc {
+    color: gray;
+    font-weight: 400;
+}
+
+.full .img {
+    background-size: cover;
+    width: 100%;
+}
+.split-section .titleHeader {
+   font-size: 40px;
+}
+.full .section-header {
+   height: 65%;
+   width: 90%;
+   box-sizing: border-box;
+   box-shadow:  0px 0px 10px 20px white;
+   border-radius: 10px;
 }
 nav {
     display: flex;
@@ -37,4 +93,6 @@ a:hover {
     color: white;
     background-color: darkgray;
 }
-
+.buttonBox {
+   margin-top: 10px; 
+}
