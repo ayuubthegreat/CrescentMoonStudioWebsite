@@ -7,7 +7,7 @@ export default function Navbar() {
     const nav = useNavigate();
     return (
         <>
-        <nav>
+        <nav className="navbar">
             <Section children={<>
                 <img className="title-img" onClick={() => {nav('/')}} src="src\assets\cmsLogo.png" width={200}></img>
                 </>}></Section>

@@ -9,7 +9,7 @@
     border-bottom: 10px solid gray;
    
 }
-nav .section {
+.navbar .section {
     margin-bottom: 0;
 }
 .section {
@@ -26,45 +26,69 @@ nav .section {
 }
 .split-section {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 0.5fr));
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+.right-split-section {
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 2fr);
+}
+.left-split-section {
+    grid-template-columns: minmax(0, 2fr), minmax(0, 1.4fr);
+}
+.footer .split-section {
+    width: 100%;
+    padding: 10px;
+}
+.footer .split-section .buttonBox {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
 }
 .split-section .section {
-    border-right: 5px solid gray;
-    border-left: 5px solid gray;
-}
-.full .section {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: wheat;
+    background-color: rgb(43, 42, 42);
+    border-right: 5px solid gray;
+    border-left: 5px solid gray;
 }
 .titleDesc {
     color: gray;
     font-weight: 400;
 }
 
-.full .img {
+.split-section .img {
     background-size: cover;
     width: 100%;
 }
 .split-section .titleHeader {
    font-size: 40px;
 }
-.full .section-header {
-   height: 65%;
+
+.split-section .section-header {
+   height: fit-content;
    width: 90%;
    box-sizing: border-box;
-   box-shadow:  0px 0px 10px 20px white;
+   box-shadow:  0px 0px 10px 10px white;
    border-radius: 10px;
 }
 nav {
     display: flex;
-    flex-direction: row;
+    
     justify-content: space-between;
     align-items: center;
+}
+.navbar {
+    flex-direction: row;
     border-bottom: 2px solid black;
     background-color: bisque;
     box-shadow: 5px 1px 20px 3px;
+    margin-bottom: 20px;
+}
+.footer {
+    flex-direction: column;
+    border-top: 2px solid black;
+    background-color: whitesmoke;
+    margin-top: 20px;
 }
 .title-img {
     transition: background-color 0.2s;
@@ -73,7 +97,7 @@ nav {
     cursor: pointer;
     background-color: antiquewhite;
 }
-nav .buttonBox {
+.navbar .buttonBox {
     display: flex;
     flex-direction: row;
     gap: 10vw;

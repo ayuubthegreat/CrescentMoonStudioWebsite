@@ -14,7 +14,7 @@ export default function Home() {
                     <ButtonBox buttonTextArr={["Learn More"]} linkArr={["/about"]}/>
                 </div>
             </Section>
-            <Section add_class={"split-section full"} height={500}>
+            <Section add_class={"split-section right-split-section"} height={500}>
                 <Section>
                      <img className="img" src={kamJumpingUp}/>
                 </Section>
@@ -22,14 +22,17 @@ export default function Home() {
                 <ButtonBox buttonTextArr={["Our Projects"]} linkArr={["/projects"]}></ButtonBox>
                 </>}></Section>
             </Section>
-            <Section add_class={"split-section full"} height={600}>
-                <Section height={600} title="Come See Our Uniqueness" description={<><p>We are the House of Variety. <br></br><strong>Want us to prove it? Come see our projects.</strong></p>
+            <Section add_class={"split-section right-split-section"} height={600}>
+                <Section height={600} title="Track When Our Projects Are Hot 'n Ready" description={<><p>Be a witness of the development process</p>
                 <ButtonBox buttonTextArr={["Project Schedule"]} linkArr={["/projects/schedule"]}></ButtonBox>
-                <p style={{fontSize: 14}}>* Times might not be fully accurate.</p>
+                <p style={{color: "red", fontSize: 14}}>* Times might not be fully accurate.</p>
                 </>}></Section>
-                <Section>
+                <Section> 
                     <img className="img" src={kamReadingABook} />
                 </Section>
+            </Section>
+            <Section add_class={"center"} title="Or...Would You Like To Take It One Step Further?" description={<><p>Instead of simply witnessing from a far distance, you could be <i>with us</i> at the development table.</p><ButtonBox buttonTextArr={["Enroll", "Contact Us"]} linkArr={["/enroll", "/contact"]}/></>}>
+                
             </Section>
             
             
