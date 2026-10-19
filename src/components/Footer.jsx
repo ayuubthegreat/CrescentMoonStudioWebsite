@@ -1,3 +1,4 @@
+import { BASE_DATA } from "../funcs/BASE_DATA";
 import ButtonBox from "./ButtonBox";
 
 
@@ -8,7 +9,7 @@ export default function Footer() {
             <div className="split-section">
                 <ButtonBox buttonTextArr={["Terms of Service (readable!)"]} linkArr={["/terms"]}/>
             </div>
-            <p>&copy; 2026 Crescent Moon Studio. All rights reserved.</p>
+            <p>&copy; 2026 {BASE_DATA.STUDIO_NAME}. All rights reserved.</p>
         </nav>
         </>
     )

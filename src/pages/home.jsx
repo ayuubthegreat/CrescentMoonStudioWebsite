@@ -4,13 +4,14 @@ import kamJumpingUp from "../assets/kamJumpingUp.png"
 import kamReadingABook from "../assets/kamReadingABook.png"
 import ButtonBox from "../components/ButtonBox";
 import GridSection from "../components/GridSection";
+import { BASE_DATA } from "../funcs/BASE_DATA";
 export default function Home() {
     return (
         <>
         <div className="page home-page">
             <Section background_img_src={titleGif} height={400} add_class={"title-section center"}>
                 <div className="section-header">
-                    <h1>Welcome to Crescent Moon Studio's Website!</h1>
+                    <h1>Welcome to {BASE_DATA.STUDIO_NAME}'s Website!</h1>
                     <ButtonBox buttonTextArr={["Learn More"]} linkArr={["/about"]}/>
                 </div>
             </Section>
