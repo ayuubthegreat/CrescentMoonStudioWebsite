@@ -13,7 +13,7 @@ export default function Navbar() {
                 <img className="title-img" onClick={() => {nav('/')}} src={cmsLogo} width={200}></img>
                 </>}></Section>
             <Section children={<>
-                <ButtonBox buttonTextArr={["About Us", "Services"]} linkArr={["/about", "/services"]}></ButtonBox>
+                <ButtonBox buttonTextArr={["About Us", "Projects", "Services"]} linkArr={["/about", "/projects", "/services"]}></ButtonBox>
                 </>}></Section>
         </nav>
         </>

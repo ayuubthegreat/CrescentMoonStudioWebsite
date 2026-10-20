@@ -120,3 +120,14 @@ a:hover {
 .buttonBox {
    margin-top: 10px; 
 }
+@media (max-width: 765px) {
+    .section.img-section {
+        display: none;
+    }
+}
+
+@media (max-width: 800px) {
+    .split-section {
+        display: block;
+    }
+}
