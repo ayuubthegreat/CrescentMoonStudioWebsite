@@ -16,7 +16,7 @@ export default function Home() {
                 </div>
             </Section>
             <Section add_class={"split-section right-split-section"} height={500}>
-                <Section>
+                <Section add_class="img-section">
                      <img className="img" src={kamJumpingUp}/>
                 </Section>
                       <Section height={500} title="Come See Our Uniqueness" description={<><p>We are the House of Variety. <br></br><strong>Want us to prove it? Come see our projects.</strong></p>
@@ -28,7 +28,7 @@ export default function Home() {
                 <ButtonBox buttonTextArr={["Project Schedule"]} linkArr={["/projects/schedule"]}></ButtonBox>
                 <p style={{color: "red", fontSize: 14}}>* Times might not be fully accurate.</p>
                 </>}></Section>
-                <Section> 
+                <Section add_class="img-section"> 
                     <img className="img" src={kamReadingABook} />
                 </Section>
             </Section>

@@ -120,13 +120,32 @@ a:hover {
 .buttonBox {
    margin-top: 10px; 
 }
+.section.navbar-large-display {
+    display: block;
+}
+.navbar-small-display {
+    display: none;
+}
+.navbar-small-display-menu .buttonBox {
+    flex-direction: column;
+    gap: 0vw;
+}
 @media (max-width: 765px) {
-    .section.img-section {
+    .section.section.navbar-large-display {
         display: none;
     }
-}
-
-@media (max-width: 800px) {
+    .section.img-section {
+        display: none;
+        font-size: small;
+    }
+    .navbar-small-display {
+        display: block;
+       
+    }
+    .navbar-small-display-menu {
+         position: absolute;
+         right: 0vw;
+    }
     .split-section {
         display: block;
     }
