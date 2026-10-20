@@ -4,6 +4,13 @@
     justify-content: center;
     align-items: center;
     padding: 10px;
+    
+}
+.grid-section {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2vw;
+
 }
 .title-section {
     border-bottom: 10px solid gray;
@@ -19,10 +26,11 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    transition: background-color 0.2s;
 }
 .cms-display-item-card:hover {
     cursor: pointer;
-    background-color: rgba(0, 0, 0, 1);
+    background-color: rgb(197, 192, 192);
 }
 .terms-of-service-page {
     display: flex;
@@ -65,7 +73,7 @@
     border: 2px solid black;
     padding: 30px;
     width: 80%;
-    text-align: left;
+    text-align: center;
     background-color: white;
     opacity: 0.8;
     line-height: normal;
@@ -154,6 +162,7 @@ nav {
     
 }
 a {
+    border: 1px solid gray;
     text-decoration: none;
     color: black;
     transition: color 0.2s, background-color 0.2s;
@@ -196,8 +205,12 @@ a:hover {
     .navbar-small-display-menu {
          position: absolute;
          right: 0vw;
+         z-index: 999;
     }
     .split-section {
+        display: block;
+    }
+    .grid-section {
         display: block;
     }
 }
