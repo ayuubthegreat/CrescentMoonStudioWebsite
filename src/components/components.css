@@ -36,6 +36,9 @@
     color: blue;
     padding: 0px;
 }
+.body-content a:hover {
+    padding: 0px 5px;
+}
 .navbar .section {
     margin-bottom: 0;
 }
