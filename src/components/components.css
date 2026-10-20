@@ -8,7 +8,14 @@
 .title-section {
     border-bottom: 10px solid gray;
 }
-
+.cms-display-item-card {
+    border: 10px solid black;
+    background-color: white;
+    text-align: center;
+}
+.cms-display-item-card:hover {
+    cursor: pointer;
+}
 .terms-of-service-page {
     display: flex;
     flex-direction: column;
