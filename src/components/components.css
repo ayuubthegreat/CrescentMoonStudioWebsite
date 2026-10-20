@@ -7,7 +7,27 @@
 }
 .title-section {
     border-bottom: 10px solid gray;
-   
+}
+.terms-of-service-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 70%;
+}
+.terms-of-service-page .section-header {
+    width: 90%;
+    opacity: 1;
+    font-size: small;
+    padding: 0px 20px;
+    text-align: center;
+}
+.terms-of-service-content {
+    width: 100%;
+    height: fit-content;
+    border: black 5px solid;
+    background-color: white;
+    text-align: center;
 }
 .navbar .section {
     margin-bottom: 0;
@@ -18,7 +38,7 @@
 .section-header {
     border: 2px solid black;
     padding: 30px;
-    width: 60%;
+    width: 80%;
     text-align: left;
     background-color: white;
     opacity: 0.8;
