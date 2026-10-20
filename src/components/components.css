@@ -13,7 +13,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    max-width: 70%;
 }
 .terms-of-service-page .section-header {
     width: 90%;
@@ -23,11 +22,19 @@
     text-align: center;
 }
 .terms-of-service-content {
-    width: 100%;
+    width: 90%;
     height: fit-content;
     border: black 5px solid;
     background-color: white;
     text-align: center;
+}
+.body-content {
+    text-align: left;
+}
+.body-content a {
+    text-decoration: underline;
+    color: blue;
+    padding: 0px;
 }
 .navbar .section {
     margin-bottom: 0;
