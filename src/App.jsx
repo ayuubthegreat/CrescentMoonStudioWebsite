@@ -9,6 +9,7 @@ import Home from './pages/home'
 import Footer from './components/Footer'
 import PageNotFound from './pages/pageNotFound'
 import TermsOfService from './pages/termsOfService'
+import {ServicesPage, ProjectsPage} from './pages/services'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -22,6 +23,8 @@ function App() {
       <Route path='/' element={<Home/>}/>
       <Route path='/terms' element={<TermsOfService/>}/>
       <Route path='*' element={<PageNotFound/>}/>
+      <Route path='/services' element={<ServicesPage/>}/>
+      <Route path='/projects' element={<ProjectsPage/>}/>
     </Routes>
     <Footer/>
     </BrowserRouter>

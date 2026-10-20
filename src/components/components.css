@@ -8,6 +8,7 @@
 .title-section {
     border-bottom: 10px solid gray;
 }
+
 .terms-of-service-page {
     display: flex;
     flex-direction: column;
