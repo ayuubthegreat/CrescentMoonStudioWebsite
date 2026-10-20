@@ -9,7 +9,7 @@ export default function Home() {
     return (
         <>
         <div className="page home-page">
-            <Section background_img_src={titleGif} height={400} add_class={"title-section center"}>
+            <Section background_img_src={`url(${titleGif}`} height={400} add_class={"title-section center"}>
                 <div className="section-header">
                     <h1>Welcome to {BASE_DATA.STUDIO_NAME}'s Website!</h1>
                     <ButtonBox buttonTextArr={["Learn More"]} linkArr={["/about"]}/>
