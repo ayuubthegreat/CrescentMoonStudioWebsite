@@ -100,7 +100,7 @@ nav {
 .navbar .buttonBox {
     display: flex;
     flex-direction: row;
-    gap: 10vw;
+    gap: 5vw;
     margin-right: 20px;
     border: 2px solid black;
     padding: 10px;
@@ -125,6 +125,11 @@ a:hover {
 }
 .navbar-small-display {
     display: none;
+}
+.navbar-small-display-button {
+    margin-right: 2vw;
+    width: 10vw;
+    height: 50px;
 }
 .navbar-small-display-menu .buttonBox {
     flex-direction: column;

@@ -18,8 +18,8 @@ export default function Navbar() {
                 <ButtonBox buttonTextArr={["About Us", "Projects", "Services"]} linkArr={["/about", "/projects", "/services"]}></ButtonBox>
                 </>}></Section>
             <div className="navbar-small-display">
-                <button className="" onClick={(e) => {
-                    setIsEnabled(true);
+                <button className="navbar-small-display-button" onClick={(e) => {
+                    setIsEnabled(!isEnabled);
                 }}>=</button>
                 <div className="navbar-small-display-menu" style={{display: (isEnabled ? "block" : "none")}}>
                     <ButtonBox buttonTextArr={["About Us", "Projects", "Services"]} linkArr={["/about", "/projects", "/services"]} onClick={() => {setIsEnabled(false)}}></ButtonBox>

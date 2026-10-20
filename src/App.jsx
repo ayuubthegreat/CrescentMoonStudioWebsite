@@ -8,6 +8,7 @@ import Navbar from './components/Navbar'
 import Home from './pages/home'
 import Footer from './components/Footer'
 import PageNotFound from './pages/pageNotFound'
+import TermsOfService from './pages/termsOfService'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -19,6 +20,7 @@ function App() {
      <Navbar/>
     <Routes>
       <Route path='/' element={<Home/>}/>
+      <Route path='/terms' element={<TermsOfService/>}/>
       <Route path='*' element={<PageNotFound/>}/>
     </Routes>
     <Footer/>
