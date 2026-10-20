@@ -19,7 +19,7 @@ export function ServicesPage() {
     return (
         <>
         <GridSection>
-            <Section onClick={onClick} id="gitspedia" add_class="cms-display-item-card" >
+            <Section onClick={onClick} id="gitspedia" add_class="cms-display-item-card" background_img_style={`linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${background_img_src})`} >
                 <div className="title-textbox">
                     <h2>Gitspedia</h2>
                 </div>
