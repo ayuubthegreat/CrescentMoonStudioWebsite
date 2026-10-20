@@ -1,7 +1,6 @@
 import GridSection from "../components/GridSection";
 import Section from "../components/Section";
-import kamJumpingUp from "../assets/kamJumpingUp.png"
-import kamReadingABook from "../assets/kamReadingABook.png"
+import gitspediaLogo from "../assets/gitspediaLogo.png"
 
 
 export function ServicesPage() {
@@ -16,10 +15,11 @@ export function ServicesPage() {
                     console.log(`Cannot find element with ID ${id}`);
                 }
             }
+
     return (
         <>
         <GridSection>
-            <Section onClick={onClick} id="gitspedia" add_class="cms-display-item-card" background_img_style={`linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${background_img_src})`} >
+            <Section height={200} onClick={onClick} id="gitspedia" add_class="cms-display-item-card" background_img_style={`linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4)), url(${gitspediaLogo})`} >
                 <div className="title-textbox">
                     <h2>Gitspedia</h2>
                 </div>
