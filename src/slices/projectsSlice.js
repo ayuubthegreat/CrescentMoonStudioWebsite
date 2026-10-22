@@ -63,6 +63,13 @@ export const ProjectsSlice = createSlice({
         builder.addCase(AddProject.pending, LoadingCase),
         builder.addCase(AddProject.fulfilled, ProjectsSuccessCase),
         builder.addCase(AddProject.rejected, FailedCase)
+        builder.addCase(UpdateProject.pending, LoadingCase),
+        builder.addCase(UpdateProject.fulfilled, ProjectsSuccessCase),
+        builder.addCase(UpdateProject.rejected, FailedCase)
+         builder.addCase(DeleteProject.pending, LoadingCase),
+        builder.addCase(DeleteProject.fulfilled, ProjectsSuccessCase),
+        builder.addCase(DeleteProject.rejected, FailedCase)
     }
 })
 
+export default ProjectsSlice.reducer;
