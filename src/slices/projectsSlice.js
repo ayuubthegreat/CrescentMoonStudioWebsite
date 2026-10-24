@@ -41,7 +41,7 @@ export const UpdateProject = createAsyncThunk(
 )
 
 export const DeleteProject = createAsyncThunk(
-    "cmsSite/projects/update",
+    "cmsSite/projects/delete",
     async(projID, {rejectWithValue}) => {
         try {
             const response = await APICall({endpoint: "cmsSite/projects", method: "DELETE", data: projID});
