@@ -1,5 +1,12 @@
 .about-title-card {
-    padding: 50px;
+    padding: 10px;
     border: 5px solid;
-    background-image: linear-gradient(65deg, gray, black);
+    background-image: linear-gradient(0deg, rgb(75, 74, 74), gray, rgb(87, 86, 86));
+    font-size: large;
+    min-width: fit-content;
+}
+.about-title-card img {
+    width: 30vw;
+    min-width: 100px;
+    max-width: 200px;
 }

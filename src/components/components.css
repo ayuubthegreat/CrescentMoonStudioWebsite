@@ -4,7 +4,6 @@
     justify-content: center;
     align-items: center;
     padding: 10px;
-    
 }
 .grid-section {
     display: grid;
@@ -71,12 +70,15 @@
 }
 .section-header {
     border: 2px solid black;
-    padding: 30px;
-    width: 80%;
+    padding: 50px 10px;
+    /* width: 80%; */
     text-align: center;
     background-color: white;
     opacity: 0.8;
     line-height: normal;
+}
+.about-content .section-header {
+    padding: 0px 10px;
 }
 .split-section {
     display: grid;

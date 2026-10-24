@@ -5,12 +5,15 @@ import cmsLogo from "../assets/cmsLogo.png"
 export const AboutPage = () => {
     return (
         <>
-        <Section add_class="about-title-section">
-            <div className="center about-title-card">
+             <div className="center about-title-card">
                 <h1>About</h1>
                 <img src={cmsLogo} width={100}/>
             </div>
-        </Section>
+            <div className="center">
+                <Section add_class="about-content" title={<>We are <i>many</i> things...</>} description={<><p>But if we could describe our studio in one word, it would be: </p> <h2>unique.</h2></>}/>
+            </div>
+           
+            
         </>
     )
 }
