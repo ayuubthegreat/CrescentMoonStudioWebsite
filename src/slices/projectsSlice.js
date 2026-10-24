@@ -20,7 +20,7 @@ export const defaultState = {
 }
 
 export const AddProject = createAsyncThunk(
-    "cmsSite/projects",
+    "cmsSite/projects/add",
     async(projData, {rejectWithValue}) => {
         try {
             const response = await APICall({endpoint: "cmsSite/projects", method: "POST", data: projData});
@@ -55,6 +55,18 @@ export const DeleteProject = createAsyncThunk(
     }
 )
 
+export const GetAllProjects = createAsyncThunk(
+    "cmsSite/projects/get",
+    async(_, {rejectWithValue}) => {
+        try {
+            const response = await APICall({endpoint: "cmsSite/projects", method: "GET"});
+            return response;
+        } catch (error) {
+            return rejectWithValue(error.message);
+        }
+    }
+)
+
 export const ProjectsSlice = createSlice({
     name: "projects",
     initialState: defaultState,
@@ -69,6 +81,9 @@ export const ProjectsSlice = createSlice({
          builder.addCase(DeleteProject.pending, LoadingCase),
         builder.addCase(DeleteProject.fulfilled, ProjectsSuccessCase),
         builder.addCase(DeleteProject.rejected, FailedCase)
+        builder.addCase(GetAllProjects.pending, LoadingCase),
+        builder.addCase(GetAllProjects.fulfilled, ProjectsSuccessCase),
+        builder.addCase(GetAllProjects.rejected, FailedCase)
     }
 })
 
