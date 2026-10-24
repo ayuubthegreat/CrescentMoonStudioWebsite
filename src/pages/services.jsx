@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 
 
 export function ServicesPage() {
+    
      const cmsProjects = ["Gitspedia", "Muftipedia"]
     const cmsProjDescriptions = []
     const cmsProjImageLinks = [gitspediaLogo, kamJumpingUp]

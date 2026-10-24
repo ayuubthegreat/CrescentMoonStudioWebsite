@@ -1,17 +1,14 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import { APICall, FailedCase, LoadingCase, ProjectsSuccessCase } from "../funcs/API_funcs"
+import z from "zod"
 
 
 
-export const projectSchema = {
-    author: "",
-    title: "",
-    shortDesc: "",
-    description: "",
-    tags: "",
-    release_date: Date.now(),
-    percentage: 0,
-}
+export const projectSchema = z.object({
+    author: z.string(),
+    title: z.string(),
+
+})
 
 export const defaultState = {
     projects: [],
