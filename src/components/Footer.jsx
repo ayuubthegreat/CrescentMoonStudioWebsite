@@ -10,7 +10,7 @@ export default function Footer() {
         <nav className="footer">
             <div className="split-section">
                 <div>
-                    <img src={aiLessLogo} width={100}/>
+                    <img src={aiLessLogo} width={150}/>
                     <p>Crescent Moon Studio has a <i>general</i> no-AI policy. <br></br> <Link to={'/no-ai-exceptions'}>See exceptions.</Link></p>
                 </div>
                 <ButtonBox buttonTextArr={["Terms of Service (readable!)"]} linkArr={["/terms"]}/>

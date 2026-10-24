@@ -6,11 +6,11 @@ import { Link } from "react-router-dom";
 
 
 export function ServicesPage() {
-    
-     const cmsProjects = ["Gitspedia", "Muftipedia"]
+
+     const cmsProjects = []
     const cmsProjDescriptions = []
-    const cmsProjImageLinks = [gitspediaLogo, kamJumpingUp]
-    const cmsProjGitspediaLinks = ["https://www.gitspedia.org/articles/cmsbrqb8200006xvlrn9mqmmc"]
+    const cmsProjImageLinks = []
+    const cmsProjGitspediaLinks = []
    
     const onClick = (id) => {
         for (let i = 0; i < cmsProjects.length; i++) {

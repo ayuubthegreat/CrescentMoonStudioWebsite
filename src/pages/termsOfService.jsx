@@ -14,9 +14,10 @@ export default function TermsOfService()  {
                     <ol>
                     <li><strong>People eligible to use Crescent Moon Studio's services must pass the following criteria:</strong>
                     <ul>
-                        {/* <li>You must not be a <Link to={"/zionist-def"}>Zionist.</Link> CONSEQUENCE ERROR: ERROR CODE ZIONIST <br></br></li> */}
+                        <li>You must not be a <Link to={"/zionist-def"}>Zionist.</Link> CONSEQUENCE ERROR: ERROR CODE ZIONIST <br></br></li>
+                        <li>You must not be an <Link to={"/ice-agent-def"}>ICE agent or any police force similar to ICE.</Link> CONSEQUENCE ERROR: ERROR CODE ICE <br></br></li>
                         <li>You must be <Link to={"/age-limit"}>old enough to access the service.</Link> CONSEQUENCE ERROR: ERROR CODE TOO-YOUNG</li>
-                        <li> <Link to={"/license-codes"}>You must have the proper license to use the service.</Link> CONSEQUUENCE ERROR: ERROR CODE NO-LICENSE</li>
+                        <li> <Link to={"/license-codes"}>You must have the proper license to use the service.</Link> CONSEQUENCE ERROR: ERROR CODE NO-LICENSE</li>
                     </ul>
                     </li>
                     <li><strong>What Happens When You Agree To The Terms</strong>
