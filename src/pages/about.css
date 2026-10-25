@@ -5,16 +5,27 @@
     font-size: large;
     min-width: fit-content;
 }
+.about-content-title {
+    margin-top: 50px;
+}
 .about-content-card {
     padding: 2px 20px;
+    background-color: rgb(199, 194, 194);
+}
+.about-content-card .split-section {
+    border-bottom: 5px solid black;
+    align-items: center;
 }
 .about-title-card img {
     width: 30vw;
     min-width: 100px;
     max-width: 200px;
 }
+.about-content-title a {
+    border: none;
+    padding: 0;
+}
 .about-content-card img {
-    max-height: 100%;
     max-width: 100%;
 }
 .error-text {
