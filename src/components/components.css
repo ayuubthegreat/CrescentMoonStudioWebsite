@@ -82,6 +82,8 @@
 }
 .split-section {
     display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 2fr);
+    
 }
 .footer .split-section div {
     display: flex;
