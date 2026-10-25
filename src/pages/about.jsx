@@ -35,7 +35,38 @@ export const AboutPage = () => {
             <p>Stay tuned for some examples---we're just getting started!</p>
         </div>
         </>
-    )]
+    ), (
+        <>
+        <div>
+            <p>The main philosophy here at {BASE_DATA.STUDIO_NAME} is to not produce just one type of product--but to produce multiple different types of products and services that will benefit people. 
+                Whether it is to comfort them with a deep story or to teach them various subjects, we at {BASE_DATA.STUDIO_NAME} love to give more than what we take.</p>
+            <h3>Main Product Variety</h3>
+            <ul>
+                <li>Software (such as our famous <Link to={"https://www.gitspedia.org/articles/cmsch2gww0000q2vkuvlfl3lp"}>Crescent Engine</Link> )</li>
+                <li>Books</li>
+            </ul>
+            <h3>Main Service Variety</h3>
+            <ul>
+                <li>C-Store (our official storefront)</li>
+                <li>Website Development Courses (with React)</li>
+            </ul>
+        </div>
+        </>
+    ), (<>
+    <div className="split-section">
+        <div>
+            <img></img>
+        </div>
+        <div>
+            <h2>Ayuub Yusuf, Head and Current Leader of {BASE_DATA.STUDIO_NAME}</h2>
+            <p><strong>Ayuub Yusuf</strong> has always been a creative and deep thinker. He has slowly 
+            been accumulating his knowledge on the creative arts ever since he was a teenager, and his projects
+            reflect this mindset. He is the main developer behind all of {BASE_DATA.STUDIO_NAME}'s projects and the 
+            force that keeps the company alive. In fact, it wouldn't be far from the truth to say that <strong>the studio</strong></p>
+        </div>
+    </div>
+    
+    </>)]
     const onClick = (id) => {
         const appropriateElement = document.getElementById(id);
         if (appropriateElement != null) {
