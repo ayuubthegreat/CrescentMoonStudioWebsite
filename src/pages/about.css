@@ -21,9 +21,11 @@
     min-width: 100px;
     max-width: 200px;
 }
-.about-content-title a {
+.about-content-title a, .about-content-card a {
     border: none;
     padding: 0;
+    color: blue;
+    text-decoration: underline;
 }
 .about-content-card img {
     max-width: 100%;

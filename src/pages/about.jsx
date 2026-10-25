@@ -17,7 +17,14 @@ export const AboutPage = () => {
         </div>
     </div>
     </>), (<>
-    <p>Our values are</p>
+    <div className="split-section">
+        <div>
+            <img></img>
+        </div>
+        <div>
+            <p>At {BASE_DATA.STUDIO_NAME}, our values make up the core of not just our business model, but also <i>our products and services.</i><br></br><strong>Our core values are three:</strong><ol><li><strong>Moral acceptance and inclusion</strong> <p>Acceptance and inclusion with moral boundaries.</p></li><li>Weighing risks and reward <p>Our variety of different products reflect this mindset.</p></li><li>Treating all employees fairly and with equity <p>Particularly, serving marginalized communities with their due respect.</p></li></ol>For more information about how our core values shape our company, look into <Link>our business model.</Link></p>
+        </div>
+    </div>
     </>)]
     const onClick = (id) => {
         const appropriateElement = document.getElementById(id);
