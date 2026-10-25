@@ -26,7 +26,16 @@ export const AboutPage = () => {
                 but also <i>our products and services.</i><br></br><strong>Our core values are three:</strong><ol><li><strong>Moral acceptance and inclusion</strong> <p>Acceptance and inclusion with moral boundaries.</p></li><li><strong>Weighing risks and reward</strong> <p>Our variety of different products reflect this mindset.</p></li><li><strong>Treating all employees fairly and with equity</strong> <p>Particularly, serving marginalized communities with their due respect.</p></li></ol>For more information about how our core values shape our company, look into <Link>our business model.</Link></p>
         </div>
     </div>
-    </>)]
+    </>), (
+        <>
+        <div>
+            <p>We at {BASE_DATA.STUDIO_NAME} know about the difficulties and struggles that the economy is in right now, 
+                and because of this our products and services are priced much lower compared to our competition. <br></br> Unfortunately, we can't just give everything away for free. That would be an insult to the craftmanship that goes into each and every product we make. However, we try and price products as low as possible while still making a profit. </p>
+            <h3>Examples</h3>
+            <p>Stay tuned for some examples---we're just getting started!</p>
+        </div>
+        </>
+    )]
     const onClick = (id) => {
         const appropriateElement = document.getElementById(id);
         if (appropriateElement != null) {
