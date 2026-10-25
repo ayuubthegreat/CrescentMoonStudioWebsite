@@ -62,7 +62,9 @@ export const AboutPage = () => {
             <p><strong>Ayuub Yusuf</strong> has always been a creative and deep thinker. He has slowly 
             been accumulating his knowledge on the creative arts ever since he was a teenager, and his projects
             reflect this mindset. He is the main developer behind all of {BASE_DATA.STUDIO_NAME}'s projects and the 
-            force that keeps the company alive. In fact, it wouldn't be far from the truth to say that <strong>the studio</strong></p>
+            force that keeps the company alive. In fact, it wouldn't be far from the truth to say that <strong>the studio represents <i>him</i> and <i>he</i> represents the studio.</strong>
+            <br></br>If you want to read more about our head and leader, <Link>read the Gitspedia article about him.</Link>
+            </p>
         </div>
     </div>
     
