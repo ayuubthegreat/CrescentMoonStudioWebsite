@@ -5,8 +5,18 @@
     font-size: large;
     min-width: fit-content;
 }
+.about-content-card {
+    padding: 2px 20px;
+}
 .about-title-card img {
     width: 30vw;
     min-width: 100px;
     max-width: 200px;
+}
+.about-content-card img {
+    max-height: 100%;
+    max-width: 100%;
+}
+.error-text {
+    color: red;
 }

@@ -201,6 +201,19 @@ a:hover {
     flex-direction: column;
     gap: 0vw;
 }
+.about-content-card-title {
+    transition: background-color 0.1s, padding 0.2s;
+    padding: 0px 10px;
+}
+.about-content-card-title:hover {
+    background-color: gray;
+    cursor: pointer;
+    padding: 0px 50px;
+}
+.about-content-parent {
+    padding: 10px;
+    background-color: wheat;
+}
 @media (max-width: 765px) {
     .section.section.navbar-large-display {
         display: none;
