@@ -35,18 +35,19 @@ export function ServicesPage() {
     return (
         <>
         <GridSection maxWidth={300}>
-            {loadedProjects.length > 0 ? {loadedProjects.map((val, i) => {
+            {loadedProjects.length > 0 && (loadedProjects.map((val, i) => {
                 
                 return (
                     <>
                     <Section background_img_style={`url(${val.relative_image_link})`} title={val.title} description={val.shortDesc}/>
                     </>
                 )
-            })} : (<>
-            
-            </>)}
+            }))}
             
         </GridSection>
+        {loadedProjects.length === 0 && (<>
+            <p className="center">No projects are currently available here. Check back later!</p>
+            </>)}
         </>
     )
 }
