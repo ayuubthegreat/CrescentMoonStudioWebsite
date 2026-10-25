@@ -32,7 +32,7 @@ export default function Home() {
                     <img className="img" src={kamReadingABook} />
                 </Section>
             </Section>
-            <Section add_class={"center"} title="Or...Would You Like To Take It One Step Further?" description={<><p>Instead of simply witnessing from a far distance, you could be <i>with us</i> at the development table.</p><ButtonBox buttonTextArr={["Enroll", "Contact Us"]} linkArr={["/enroll", "/contact"]}/></>}>
+            <Section add_class={"center"} title="Or...Would You Like To Take It One Step Further?" description={<><p>Instead of simply witnessing from a far distance, you could be <i>with us</i> at the development table.</p><ButtonBox buttonTextArr={["Contact Us"]} linkArr={["/contact"]}/></>}>
                 
             </Section>
             

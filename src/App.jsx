@@ -11,6 +11,7 @@ import PageNotFound from './pages/pageNotFound'
 import TermsOfService from './pages/termsOfService'
 import {ServicesPage, ProjectsPage} from './pages/services'
 import { AboutPage } from './pages/about'
+import { ContactUsPage } from './pages/contact-us'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -27,6 +28,7 @@ function App() {
       <Route path='/services' element={<ServicesPage/>}/>
       <Route path='/projects' element={<ProjectsPage/>}/>
       <Route path='/about' element={<AboutPage/>}/>
+      <Route path='/contact' element={<ContactUsPage/>}/>
     </Routes>
     <Footer/>
     </BrowserRouter>
