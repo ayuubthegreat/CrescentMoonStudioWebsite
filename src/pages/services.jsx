@@ -3,14 +3,13 @@ import Section from "../components/Section";
 import gitspediaLogo from "../assets/gitspediaLogo.png"
 import kamJumpingUp from "../assets/kamJumpingUp.png"
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 
 export function ServicesPage() {
 
-     const cmsProjects = []
-    const cmsProjDescriptions = []
-    const cmsProjImageLinks = []
-    const cmsProjGitspediaLinks = []
+     const {projects} = useSelector((state) => state.projects);
+    const loadedProjects = projects ?? [];
    
     const onClick = (id) => {
         for (let i = 0; i < cmsProjects.length; i++) {
@@ -35,23 +34,13 @@ export function ServicesPage() {
 
     return (
         <>
-        <Section height={100} add_class="center" title="Click on project cards to reveal their descriptions."/>
-        <GridSection>
-            {cmsProjects.map((val, i) => {
+        <GridSection maxWidth={300}>
+            {loadedProjects.map((val, i) => {
                 return (
                     <>
-                     <Section height={200} onClick={onClick} id={val} add_class="cms-display-item-card" background_img_style={`linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4)), url(${cmsProjImageLinks[i] ?? gitspediaLogo})`} >
-                <div className="title-textbox">
-                    <h2>{val}</h2>
-                </div>
-                <div className="display-textbox hidden">
-                    <p>{cmsProjDescriptions[i] ?? "No description found."}</p>
-                    <a href={`${cmsProjGitspediaLinks[i] ?? "https://www.gitspedia.org"}`} rel="noopener noreferrer">Learn More (takes you to Gitspedia)</a>
-                </div>
-            </Section>
+                    <Section background_img_style={`url(${val.relative_image_link})`} title={val.title} description={val.shortDesc}/>
                     </>
                 )
-               
             })}
             
         </GridSection>
@@ -60,10 +49,11 @@ export function ServicesPage() {
 }
 
 export function ProjectsPage() {
+   
     return (
         <>
         <GridSection>
-
+            
         </GridSection>
         </>
     )

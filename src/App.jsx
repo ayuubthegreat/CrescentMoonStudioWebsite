@@ -32,8 +32,8 @@ function App() {
       <Route path='/' element={<Home/>}/>
       <Route path='/terms' element={<TermsOfService/>}/>
       <Route path='*' element={<PageNotFound/>}/>
-      {/* <Route path='/services' element={<ServicesPage/>}/>
-      <Route path='/projects' element={<ProjectsPage/>}/> */}
+      <Route path='/services' element={<ServicesPage/>}/>
+      <Route path='/projects' element={<ProjectsPage/>}/>
       <Route path='/about' element={<AboutPage/>}/>
       <Route path='/contact' element={<ContactUsPage/>}/>
     </Routes>
