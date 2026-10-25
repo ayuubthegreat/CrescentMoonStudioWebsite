@@ -35,22 +35,16 @@ export function ServicesPage() {
     return (
         <>
         <GridSection maxWidth={300}>
-            {loadedProjects.map((val, i) => {
-                const images = import.meta.glob("../assets/*", {
-  eager: true,
-  query: "?url",
-  import: "default",
-});
-
-const img = images[val.relative_image_link];
-                console.log(img);
-                console.log(val);
+            {loadedProjects.length > 0 ? {loadedProjects.map((val, i) => {
+                
                 return (
                     <>
-                    <Section background_img_style={`url(${img})`} title={val.title} description={val.shortDesc}/>
+                    <Section background_img_style={`url(${val.relative_image_link})`} title={val.title} description={val.shortDesc}/>
                     </>
                 )
-            })}
+            })} : (<>
+            
+            </>)}
             
         </GridSection>
         </>
