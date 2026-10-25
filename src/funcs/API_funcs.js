@@ -25,7 +25,7 @@ export const LoadingCase = (state) => {
 export const ProjectsSuccessCase = (state, action) => {
     state.loading = false;
     state.projects = action.payload.data;
-    console.log(`Found ${action.payload.data[0]}`);
+    console.log(`Found ${action}`);
 }
 export const FailedCase = (state, action) => {
     state.loading = false
