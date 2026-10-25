@@ -233,9 +233,6 @@ a:hover {
     .split-section {
         display: block;
     }
-    .grid-section {
-        display: block;
-    }
     .footer .split-section div {
     display: flex;
     flex-direction: column;
