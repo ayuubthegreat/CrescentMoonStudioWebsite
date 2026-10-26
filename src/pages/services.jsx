@@ -10,6 +10,15 @@ export function ServicesPage() {
 
      const {projects} = useSelector((state) => state.projects);
     const loadedProjects = projects ?? [];
+    const getStageOfProduction = (percentage = -1)  => {
+        if (percentage < 0) return ["white", "Planning Phase"]
+        if (percentage >= 0 && percentage < 25) return ["yellow", "Pre-production"];
+        if (percentage >= 25 && percentage < 50) return ["green", "In Development"];
+        if (percentage >= 50 && percentage < 75) return ["blue", "In Late Development"];
+        if (percentage >= 75 && percentage < 100) return ["purple", "Post-production"];
+        if (percentage === 100) return ["coral", "Has Released!"];
+        return ["red", "Unknown"]
+    }
    
     const onClick = (id) => {
         for (let i = 0; i < cmsProjects.length; i++) {
@@ -36,10 +45,14 @@ export function ServicesPage() {
         <>
         <GridSection maxWidth={300}>
             {loadedProjects.length > 0 && (loadedProjects.map((val, i) => {
-                
+                const productionPhase = getStageOfProduction(val.percentage);
+
                 return (
                     <>
-                    <Section background_img_style={`url(${val.relative_image_link})`} title={val.title} description={val.shortDesc}/>
+                    <Section background_img_style={`url(${val.relative_image_link})`}>
+                        <p style={{backgroundColor: `${productionPhase[0]}`}}>{productionPhase[1]}</p>
+                        <h1>{val.title}</h1>
+                    </Section>
                     </>
                 )
             }))}
