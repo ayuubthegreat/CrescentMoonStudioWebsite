@@ -5,6 +5,7 @@ import kamJumpingUp from "../assets/kamJumpingUp.png"
 import { data, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import "./products.css"
+import { url } from "zod";
 
 
 export function ScheduledProductsPage() {
@@ -71,10 +72,17 @@ export function ProductsPage() {
         <>
         <GridSection maxWidth={300}>
             {finishedProjects.length > 0 && finishedProjects.map((val) => {
+                const images = import.meta.glob("../assets/*", {
+  eager: true,
+  query: "?url",
+  import: "default",
+});
+
+const img = images[val.relative_image_link];
                 return (
                     <>
-                    <Section background_img_style="" add_class="finished-project-card">
-                        <p>Version {val.version_num}</p>
+                    <Section background_img_style={`url(${img})`} add_class="finished-project-card">
+                        <p className="finished-project-card-version-text">Version {val.version_num}</p>
                         {val.version_percentage > 0 && (<>
                         <p>Next version (Version {val.version_num + 0.1}) in development: {val.version_percentage}% complete</p>
                         </>)}

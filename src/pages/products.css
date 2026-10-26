@@ -23,8 +23,17 @@
 .finished-project-card {
     display: flex;
     flex-direction: column;
-    background-color: beige;
+    background-color: rgba(255, 255, 255, 0.7);
     align-items: center;
     padding: 10px;
     border-radius: 10px;
 }
+.finished-project-card-version-text {
+    padding: 10px;
+background-color: darkgray;
+color: white;
+border-radius: 10px;
+border: 3px solid black;
+transition: padding 0.5s;
+}
+
