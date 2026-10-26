@@ -9,7 +9,7 @@ import Home from './pages/home'
 import Footer from './components/Footer'
 import PageNotFound from './pages/pageNotFound'
 import TermsOfService from './pages/termsOfService'
-import {ServicesPage, ProjectsPage} from './pages/services'
+import { ScheduledProductsPage, ProductsPage } from './pages/products'
 import { AboutPage } from './pages/about'
 import { ContactUsPage } from './pages/contact-us'
 import { useDispatch, useSelector } from 'react-redux'
@@ -32,8 +32,8 @@ function App() {
       <Route path='/' element={<Home/>}/>
       <Route path='/terms' element={<TermsOfService/>}/>
       <Route path='*' element={<PageNotFound/>}/>
-      <Route path='/projects/schedule' element={<ServicesPage/>}/>
-      <Route path='/projects' element={<ProjectsPage/>}/>
+      <Route path='/products-schedule' element={<ScheduledProductsPage/>}/>
+      <Route path='/finished-products' element={<ProductsPage/>}/>
       <Route path='/about' element={<AboutPage/>}/>
       <Route path='/contact' element={<ContactUsPage/>}/>
     </Routes>

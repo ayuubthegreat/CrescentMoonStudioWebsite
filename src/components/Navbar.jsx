@@ -9,7 +9,7 @@ export default function Navbar() {
     const nav = useNavigate();
     const [isEnabled, setIsEnabled] = useState(false);
     const navbarButtonsNames = ["About Us", "Products", "Schedule"]
-    const navbarButtonsLinks = ["/about", "/projects", "/projects/schedule"]
+    const navbarButtonsLinks = ["/about", "/finished-products", "/products-schedule"]
     return (
         <>
         <nav className="navbar">

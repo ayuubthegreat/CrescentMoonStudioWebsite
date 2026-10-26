@@ -4,18 +4,18 @@ import gitspediaLogo from "../assets/gitspediaLogo.png"
 import kamJumpingUp from "../assets/kamJumpingUp.png"
 import { data, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import "./services.css"
+import "./products.css"
 
 
-export function ServicesPage() {
+export function ScheduledProductsPage() {
 
      const {projects} = useSelector((state) => state.projects);
     const loadedProjects = projects ?? [];
     const getStageOfProduction = (percentage = -1)  => {
         if (percentage < 0) return ["white", "Planning Phase"]
-        if (percentage >= 0 && percentage < 25) return ["yellow", "Pre-production"];
-        if (percentage >= 25 && percentage < 50) return ["green", "In Development"];
-        if (percentage >= 50 && percentage < 75) return ["blue", "In Late Development"];
+        if (percentage >= 0 && percentage < 25) return ["orange", "Pre-production"];
+        if (percentage >= 25 && percentage < 50) return ["lightgreen", "In Development"];
+        if (percentage >= 50 && percentage < 75) return ["lightblue", "In Late Development"];
         if (percentage >= 75 && percentage < 100) return ["purple", "Post-production"];
         if (percentage === 100) return ["coral", "Has Released!"];
         return ["red", "Unknown"]
@@ -79,13 +79,13 @@ export function ServicesPage() {
     )
 }
 
-export function ProjectsPage() {
+export function ProductsPage() {
    const {projects} = useSelector((state) => state.projects);
    const finishedProjects = [...projects].filter((proj) => proj.percentage === 100);
     return (
         <>
         <GridSection maxWidth={300}>
-            {finishedProjects.length > 0 ? finishedProjects.map((val) => {
+            {finishedProjects.length > 0 && finishedProjects.map((val) => {
                 return (
                     <>
                     <Section add_class="finished-project-card">
@@ -99,8 +99,11 @@ export function ProjectsPage() {
                     </Section>
                     </>
                 )
-            }) : (<><p>No projects currently developed at this time....</p></>)}
+            })}
         </GridSection>
+        {finishedProjects.length === 0 && (<>
+        <p className="center">No projects have been finished....come back later!</p>
+        </>)}
         </>
     )
 }
