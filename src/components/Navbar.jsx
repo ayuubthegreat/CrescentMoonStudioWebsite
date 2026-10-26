@@ -8,6 +8,8 @@ import { useState } from "react"
 export default function Navbar() {
     const nav = useNavigate();
     const [isEnabled, setIsEnabled] = useState(false);
+    const navbarButtonsNames = ["About Us", "Products", "Schedule"]
+    const navbarButtonsLinks = ["/about", "/projects", "/projects/schedule"]
     return (
         <>
         <nav className="navbar">
@@ -15,14 +17,14 @@ export default function Navbar() {
                 <img className="title-img" onClick={() => {nav('/')}} src={cmsLogo} width={200}></img>
                 </>}></Section>
             <Section add_class="navbar-large-display" children={<>
-                <ButtonBox buttonTextArr={["About Us", "Projects", "Services"]} linkArr={["/about", "/projects", "/services"]}></ButtonBox>
+                <ButtonBox buttonTextArr={navbarButtonsNames} linkArr={navbarButtonsLinks}></ButtonBox>
                 </>}></Section>
             <div className="navbar-small-display">
                 <button className="navbar-small-display-button" onClick={(e) => {
                     setIsEnabled(!isEnabled);
                 }}>=</button>
                 <div className="navbar-small-display-menu" style={{display: (isEnabled ? "block" : "none")}}>
-                    <ButtonBox buttonTextArr={["About Us", "Projects", "Services"]} linkArr={["/about", "/projects", "/services"]} onClick={() => {setIsEnabled(false)}}></ButtonBox>
+                    <ButtonBox buttonTextArr={navbarButtonsNames} linkArr={navbarButtonsLinks} onClick={() => {setIsEnabled(false)}}></ButtonBox>
                 </div>
             </div>
         </nav>

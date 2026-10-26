@@ -84,14 +84,18 @@ export function ProjectsPage() {
    const finishedProjects = [...projects].filter((proj) => proj.percentage === 100);
     return (
         <>
-        <GridSection>
+        <GridSection maxWidth={300}>
             {finishedProjects.length > 0 ? finishedProjects.map((val) => {
                 return (
                     <>
-                    <Section>
+                    <Section add_class="finished-project-card">
                         <p>Version {val.version_num}</p>
+                        {val.version_percentage > 0 && (<>
+                        <p>Next version (Version {val.version_num + 0.1}) in development: {val.version_percentage}% complete</p>
+                        </>)}
                         <h1>{val.title}</h1>
                         <h3>{val.description}</h3>
+                        <Link to={val.gitspedia_href}>Go to Article</Link>
                     </Section>
                     </>
                 )
