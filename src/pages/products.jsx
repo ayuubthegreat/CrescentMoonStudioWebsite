@@ -6,6 +6,7 @@ import { data, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import "./products.css"
 import { url } from "zod";
+import { useState } from "react";
 
 
 export function ScheduledProductsPage() {
@@ -23,6 +24,10 @@ export function ScheduledProductsPage() {
     }
     return (
         <>
+        <div className="page-header">
+            <h1>Scheduled Projects</h1>
+            <p>This is where you can find our projects, hard at work at our studio.</p>
+        </div>
         <GridSection maxWidth={300}>
             {loadedProjects.length > 0 && ([...loadedProjects].sort((a, b) => new Date(a.release_date) - new Date(b.release_date)).filter((val) => val.percentage < 100).map((val) => {
                 const productionPhase = getStageOfProduction(Math.min(Math.max(val.percentage, -2), 100));
@@ -50,6 +55,7 @@ const img = images[val.relative_image_link];
                           })}
                           </div>
                         <h1>{val.title}</h1>
+                        <h6>{val.shortDesc}</h6>
                         <h3>Release date: {releaseDate.toLocaleDateString(undefined, {year: "numeric", month: "long", day: "numeric"})}</h3>  
                         </div>
                     </Section>
@@ -67,9 +73,45 @@ const img = images[val.relative_image_link];
 
 export function ProductsPage() {
    const {projects} = useSelector((state) => state.projects);
-   const finishedProjects = [...projects].filter((proj) => proj.percentage === 100);
+   const allTags = function() {
+    const tempProjects = [...projects];
+    const tags = [];
+    for (let i = 0; i < tempProjects.length; i++) {
+        const projTags = getTags(tempProjects[i]);
+        for (let i = 0; i < projTags.length; i++) {
+            if (!tags.includes(projTags[i])) {
+                tags.push(projTags[i]);
+            }
+        }
+    }
+    return tags;
+   }
+   const getTags = function(proj) {
+    return proj.tags.split(',');
+   }
+   const [filteredTag, setFilteredTag] = useState(null);
+   const finishedProjects = [...projects].filter((proj) => proj.percentage === 100 && (filteredTag !== null ? getTags(proj).includes(filteredTag) : true));
     return (
         <>
+         <div className="page-header">
+            <h1>Products</h1>
+            <p>This is where you can find the products that we have released, and where to find them.</p>
+        </div>
+        <div className="tag-container">
+          {filteredTag === null ? (<>
+            {allTags().map((val) => {
+                return (
+                    <>
+                    <button onClick={() => {setFilteredTag(val);}} className="project-card-tag">{val}</button>
+                    </>
+                )
+            })}
+          </>) : (<>
+            <p className="project-card-tag filtered">{filteredTag}</p>
+            <button onClick={() => {setFilteredTag(null);}}>Clear Filter</button>
+          </>)}
+        
+        </div>
         <GridSection maxWidth={300}>
             {finishedProjects.length > 0 && finishedProjects.map((val) => {
                 const images = import.meta.glob("../assets/*", {
@@ -86,6 +128,15 @@ const img = images[val.relative_image_link];
                         {val.version_percentage > 0 && (<>
                         <p>Next version (Version {val.version_num + 0.1}) in development: {val.version_percentage}% complete</p>
                         </>)}
+                        <div className="project-card-tags-parent">
+                                {val.tags.split(',').map((tag) => {
+                            return (
+                                <>
+                                <p className="project-card-tag">{tag[0].toUpperCase() + tag.substring(1)}</p>
+                                </>
+                            )
+                          })}
+                          </div>
                         <h1>{val.title}</h1>
                         <h3>{val.description}</h3>
                         <Link to={val.gitspedia_href}>Go to Article</Link>

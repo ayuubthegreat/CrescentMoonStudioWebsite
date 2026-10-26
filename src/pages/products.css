@@ -1,3 +1,17 @@
+.page-header {
+    color: bisque;
+    background-color: gray;
+    padding: 1vw;
+    text-align: center;
+    margin-bottom: 3vw;
+}
+.tag-container {
+    padding: 1vw;
+    display: flex;
+    flex-direction: row;
+    gap: 3vw;
+}
+
 .project-card-percentage {
     border-radius: 10px;
     text-align: center;
@@ -27,6 +41,10 @@
     align-items: center;
     padding: 10px;
     border-radius: 10px;
+    transition: padding 0.5s;
+}
+.finished-project-card:hover {
+    padding: 60px;
 }
 .finished-project-card-version-text {
     padding: 10px;
