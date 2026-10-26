@@ -45,7 +45,7 @@ export function ServicesPage() {
     return (
         <>
         <GridSection maxWidth={300}>
-            {loadedProjects.length > 0 && ([...loadedProjects].sort((a, b) => new Date(a.release_date) - new Date(b.release_date)).map((val) => {
+            {loadedProjects.length > 0 && ([...loadedProjects].sort((a, b) => new Date(a.release_date) - new Date(b.release_date)).filter((val) => val.percentage < 100).map((val) => {
                 const productionPhase = getStageOfProduction(Math.min(Math.max(val.percentage, -2), 100));
                 const beganProduction = val.percentage >= 0;
                 const releaseDate = new Date(val.release_date);
@@ -63,10 +63,8 @@ export function ServicesPage() {
                             )
                           })}
                           </div>
-                          
                         <h1>{val.title}</h1>
                         <h3>Release date: {releaseDate.toLocaleDateString(undefined, {year: "numeric", month: "long", day: "numeric"})}</h3>  
-                        <Link to={val.gitspedia_href}>Go to Article</Link>
                         </div>
                     </Section>
                     </>
@@ -82,11 +80,22 @@ export function ServicesPage() {
 }
 
 export function ProjectsPage() {
-   
+   const {projects} = useSelector((state) => state.projects);
+   const finishedProjects = [...projects].filter((proj) => proj.percentage === 100);
     return (
         <>
         <GridSection>
-            
+            {finishedProjects.length > 0 ? finishedProjects.map((val) => {
+                return (
+                    <>
+                    <Section>
+                        <p>Version {val.version_num}</p>
+                        <h1>{val.title}</h1>
+                        <h3>{val.description}</h3>
+                    </Section>
+                    </>
+                )
+            }) : (<><p>No projects currently developed at this time....</p></>)}
         </GridSection>
         </>
     )
