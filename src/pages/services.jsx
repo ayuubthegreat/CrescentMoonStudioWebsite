@@ -2,8 +2,9 @@ import GridSection from "../components/GridSection";
 import Section from "../components/Section";
 import gitspediaLogo from "../assets/gitspediaLogo.png"
 import kamJumpingUp from "../assets/kamJumpingUp.png"
-import { Link } from "react-router-dom";
+import { data, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import "./services.css"
 
 
 export function ServicesPage() {
@@ -44,14 +45,23 @@ export function ServicesPage() {
     return (
         <>
         <GridSection maxWidth={300}>
-            {loadedProjects.length > 0 && (loadedProjects.map((val, i) => {
-                const productionPhase = getStageOfProduction(val.percentage);
-
+            {loadedProjects.length > 0 && (loadedProjects.sort((a, b) => {
+                const aDate = new Date(a.release_date).getTime();
+                const bDate = new Date(b.release_date).getTime();
+                return aDate > bDate;
+            }).map((val, i) => {
+                const productionPhase = getStageOfProduction(Math.min(Math.max(val.percentage, -2), 100));
+                const beganProduction = val.percentage >= 0;
+                const releaseDate = new Date(val.release_date);
                 return (
                     <>
                     <Section background_img_style={`url(${val.relative_image_link})`}>
-                        <p style={{backgroundColor: `${productionPhase[0]}`}}>{productionPhase[1]}</p>
+                        <div className="project-card">
+                          <p className="project-card-percentage" style={{backgroundColor: `${productionPhase[0]}`}}>{productionPhase[1]} | {beganProduction ? Math.min(val.percentage, 100) + "%" : "Not Began Yet"}</p>
                         <h1>{val.title}</h1>
+                        <h3>Release date: {releaseDate.toLocaleDateString(undefined, {year: "numeric", month: "long", day: "numeric"})}</h3>  
+                        </div>
+                        
                     </Section>
                     </>
                 )
