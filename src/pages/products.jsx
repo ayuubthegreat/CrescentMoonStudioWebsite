@@ -20,28 +20,6 @@ export function ScheduledProductsPage() {
         if (percentage === 100) return ["coral", "Has Released!"];
         return ["red", "Unknown"]
     }
-   
-    const onClick = (id) => {
-        for (let i = 0; i < cmsProjects.length; i++) {
-            const element = document.getElementById(cmsProjects[i]);
-                if (element !== null) {
-                    const display_textbox = element.getElementsByClassName("display-textbox")[0];
-                    const title_textbox = element.getElementsByClassName("title-textbox")[0];
-                    if (cmsProjects[i] === id) {
-                        display_textbox.classList.toggle("hidden");
-                    title_textbox.classList.toggle("hidden");
-                    } else {
-                        display_textbox.classList.add("hidden");
-                    title_textbox.classList.remove("hidden");
-                    }
-                    
-                } else {
-                    console.log(`Cannot find element with ID ${cmsProjects[i]}`);
-                }
-        }
-    }
-   
-
     return (
         <>
         <GridSection maxWidth={300}>
@@ -49,9 +27,16 @@ export function ScheduledProductsPage() {
                 const productionPhase = getStageOfProduction(Math.min(Math.max(val.percentage, -2), 100));
                 const beganProduction = val.percentage >= 0;
                 const releaseDate = new Date(val.release_date);
+                const images = import.meta.glob("../assets/*", {
+  eager: true,
+  query: "?url",
+  import: "default",
+});
+
+const img = images[val.relative_image_link];
                 return (
                     <>
-                    <Section background_img_style={`url(${val.relative_image_link})`}>
+                    <Section background_img_style={`url(${img})`}>
                         <div className="project-card">
                           <p className="project-card-percentage" style={{backgroundColor: `${productionPhase[0]}`}}>{productionPhase[1]} | {beganProduction ? Math.min(val.percentage, 100) + "%" : "Not Began Yet"}</p>
                           <div className="project-card-tags-parent">
@@ -88,7 +73,7 @@ export function ProductsPage() {
             {finishedProjects.length > 0 && finishedProjects.map((val) => {
                 return (
                     <>
-                    <Section add_class="finished-project-card">
+                    <Section background_img_style="" add_class="finished-project-card">
                         <p>Version {val.version_num}</p>
                         {val.version_percentage > 0 && (<>
                         <p>Next version (Version {val.version_num + 0.1}) in development: {val.version_percentage}% complete</p>
