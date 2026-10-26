@@ -45,11 +45,7 @@ export function ServicesPage() {
     return (
         <>
         <GridSection maxWidth={300}>
-            {loadedProjects.length > 0 && (loadedProjects.sort((a, b) => {
-                const aDate = new Date(a.release_date).getTime();
-                const bDate = new Date(b.release_date).getTime();
-                return aDate > bDate;
-            }).map((val, i) => {
+            {loadedProjects.length > 0 && ([...loadedProjects].sort((a, b) => new Date(a.release_date) - new Date(b.release_date)).map((val) => {
                 const productionPhase = getStageOfProduction(Math.min(Math.max(val.percentage, -2), 100));
                 const beganProduction = val.percentage >= 0;
                 const releaseDate = new Date(val.release_date);
@@ -58,10 +54,19 @@ export function ServicesPage() {
                     <Section background_img_style={`url(${val.relative_image_link})`}>
                         <div className="project-card">
                           <p className="project-card-percentage" style={{backgroundColor: `${productionPhase[0]}`}}>{productionPhase[1]} | {beganProduction ? Math.min(val.percentage, 100) + "%" : "Not Began Yet"}</p>
+                          <div className="project-card-tags-parent">
+                                {val.tags.split(',').map((tag) => {
+                            return (
+                                <>
+                                <p className="project-card-tag">{tag[0].toUpperCase() + tag.substring(1)}</p>
+                                </>
+                            )
+                          })}
+                          </div>
+                          
                         <h1>{val.title}</h1>
                         <h3>Release date: {releaseDate.toLocaleDateString(undefined, {year: "numeric", month: "long", day: "numeric"})}</h3>  
                         </div>
-                        
                     </Section>
                     </>
                 )
