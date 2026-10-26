@@ -56,7 +56,7 @@ const img = images[val.relative_image_link];
                           </div>
                         <h1>{val.title}</h1>
                         <h6>{val.shortDesc}</h6>
-                        <h3>Release date: {releaseDate.toLocaleDateString(undefined, {year: "numeric", month: "long", day: "numeric"})}</h3>  
+                        <h3>Planned release date: {releaseDate.toLocaleDateString(undefined, {year: "numeric", month: "long", day: "numeric"})}</h3>  
                         </div>
                     </Section>
                     </>
@@ -73,11 +73,16 @@ const img = images[val.relative_image_link];
 
 export function ProductsPage() {
    const {projects} = useSelector((state) => state.projects);
+  
+   const getTags = function(proj) {
+    return proj.tags.split(',');
+   }
+   const [filteredTag, setFilteredTag] = useState(null);
+   const finishedProjects = [...projects].filter((proj) => proj.percentage === 100 && (filteredTag !== null ? getTags(proj).includes(filteredTag) : true)); 
    const allTags = function() {
-    const tempProjects = [...projects];
     const tags = [];
-    for (let i = 0; i < tempProjects.length; i++) {
-        const projTags = getTags(tempProjects[i]);
+    for (let i = 0; i < finishedProjects.length; i++) {
+        const projTags = getTags(finishedProjects[i]);
         for (let i = 0; i < projTags.length; i++) {
             if (!tags.includes(projTags[i])) {
                 tags.push(projTags[i]);
@@ -86,11 +91,6 @@ export function ProductsPage() {
     }
     return tags;
    }
-   const getTags = function(proj) {
-    return proj.tags.split(',');
-   }
-   const [filteredTag, setFilteredTag] = useState(null);
-   const finishedProjects = [...projects].filter((proj) => proj.percentage === 100 && (filteredTag !== null ? getTags(proj).includes(filteredTag) : true));
     return (
         <>
          <div className="page-header">
@@ -138,7 +138,7 @@ const img = images[val.relative_image_link];
                           })}
                           </div>
                         <h1>{val.title}</h1>
-                        <h3>{val.description}</h3>
+                        <h3>{val.shortDesc}</h3>
                         <Link to={val.gitspedia_href}>Go to Article</Link>
                     </Section>
                     </>
