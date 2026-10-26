@@ -66,6 +66,7 @@ export function ServicesPage() {
                           
                         <h1>{val.title}</h1>
                         <h3>Release date: {releaseDate.toLocaleDateString(undefined, {year: "numeric", month: "long", day: "numeric"})}</h3>  
+                        <Link to={val.gitspedia_href}>Go to Article</Link>
                         </div>
                     </Section>
                     </>
