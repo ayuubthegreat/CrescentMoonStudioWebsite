@@ -20,12 +20,12 @@ export default function Home() {
                      <img className="img" src={kamJumpingUp}/>
                 </Section>
                       <Section height={500} title="Come See Our Uniqueness" description={<><p>We are the House of Variety. <br></br><strong>Want us to prove it? Come see our projects.</strong></p>
-                <ButtonBox buttonTextArr={["Our Projects"]} linkArr={["/projects"]}></ButtonBox>
+                <ButtonBox buttonTextArr={["Our Projects"]} linkArr={["/finished-products"]}></ButtonBox>
                 </>}></Section>
             </Section>
             <Section add_class={"split-section right-split-section"} height={600}>
                 <Section height={600} title="Track When Our Projects Are Hot 'n Ready" description={<><p>Be a witness of the development process</p>
-                <ButtonBox buttonTextArr={["Project Schedule"]} linkArr={["/projects/schedule"]}></ButtonBox>
+                <ButtonBox buttonTextArr={["Project Schedule"]} linkArr={["/products-schedule"]}></ButtonBox>
                 <p style={{color: "red", fontSize: 14}}>* Times might not be fully accurate.</p>
                 </>}></Section>
                 <Section add_class="img-section"> 
