@@ -42,7 +42,7 @@ export const AboutPage = () => {
                 Whether it is to comfort them with a deep story or to teach them various subjects, we at {BASE_DATA.STUDIO_NAME} love to give more than what we take.</p>
             <h3>Main Product Variety</h3>
             <ul>
-                <li>Software (such as our famous <Link to={"https://www.gitspedia.org/articles/cmsch2gww0000q2vkuvlfl3lp"}>Crescent Engine</Link> )</li>
+                <li>Software</li>
                 <li>Books</li>
             </ul>
             <h3>Main Service Variety</h3>
@@ -82,7 +82,7 @@ export const AboutPage = () => {
                 <img src={cmsLogo} width={100}/>
             </div>
             <div>
-                <Section add_class="about-content-title" title={<>We are <i>many</i> things...</>} description={<><p>But if we could describe our studio in one word, it would be: </p> <h2>unique.</h2> <p>But if you want to learn more about what makes {BASE_DATA.STUDIO_NAME} what it is, then please continue reading. <br></br> <i>Click on each of the headers below.</i><br></br>Or if you want to go into even more detail, <Link to={"https:\\www.gitspedia.org"}>check out the Gitspedia article about the studio.</Link></p></>}/>
+                <Section add_class="about-content-title" title={<>We are <i>many</i> things...</>} description={<><p>But if we could describe our studio in one word, it would be: </p> <h2>unique.</h2> <p>But if you want to learn more about what makes {BASE_DATA.STUDIO_NAME} what it is, then please continue reading. <br></br> <i>Click on each of the headers below.</i><br></br>Or if you want to go into even more detail, <Link to={"https://www.gitspedia.org/cms"}>check out the Gitspedia article about the studio.</Link></p></>}/>
                 <Section add_class="about-content-parent">
                      {secTitles.map((val, i) => {
                     return (
