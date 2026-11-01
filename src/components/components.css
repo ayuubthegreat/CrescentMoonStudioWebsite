@@ -176,7 +176,7 @@ nav {
     padding: 3px 5px;
     
 }
-a {
+a,button {
     border: 1px solid gray;
     text-decoration: none;
     color: black;

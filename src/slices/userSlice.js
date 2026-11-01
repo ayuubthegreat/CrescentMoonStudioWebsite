@@ -17,7 +17,7 @@ export const initialState = {
     isAuthenticated: false,
 };
 
-export const loginUser = createAsyncThunk(
+export const LoginUser = createAsyncThunk(
     'user/login',
     async(creds, { rejectWithValue }) => {
         try {
@@ -29,7 +29,7 @@ export const loginUser = createAsyncThunk(
     }
 )
 
-export const registerUser = createAsyncThunk(
+export const RegisterUser = createAsyncThunk(
     'user/register',
     async(creds, { rejectWithValue }) => {
         try {
@@ -55,22 +55,32 @@ const userSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
-            .addCase(loginUser.fulfilled, (state, action) => {
-                state.user = action.payload.data;
-                state.isAuthenticated = true;
-                localStorage.setItem('user', action.payload.data.id);
-            })
-            .addCase(loginUser.rejected, (state, action) => {
+            .addCase(LoginUser.pending, (state) => {
                 state.user = null;
                 state.isAuthenticated = false;
                 localStorage.removeItem('user');
             })
-            .addCase(registerUser.fulfilled, (state, action) => {
+            .addCase(LoginUser.fulfilled, (state, action) => {
                 state.user = action.payload.data;
                 state.isAuthenticated = true;
                 localStorage.setItem('user', action.payload.data.id);
             })
-            .addCase(registerUser.rejected, (state, action) => {
+            .addCase(LoginUser.rejected, (state, action) => {
+                state.user = null;
+                state.isAuthenticated = false;
+                localStorage.removeItem('user');
+            })
+            .addCase(RegisterUser.pending, (state) => {
+                state.user = null;
+                state.isAuthenticated = false;
+                localStorage.removeItem('user');
+            })
+            .addCase(RegisterUser.fulfilled, (state, action) => {
+                state.user = action.payload.data;
+                state.isAuthenticated = true;
+                localStorage.setItem('user', action.payload.data.id);
+            })
+            .addCase(RegisterUser.rejected, (state, action) => {
                 state.user = null;
                 state.isAuthenticated = false;
                 localStorage.removeItem('user');

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import {BrowserRouter, Route, Router, Routes} from 'react-router-dom'
 import LoginPage from './pages/loginPage'
+import RegisterPage from './pages/registerPage'
 import './App.css'
 import Navbar from './components/Navbar'
 import Home from './pages/home'
@@ -37,6 +38,7 @@ function App() {
       <Route path='/contact' element={<ContactUsPage/>}/>
       <Route path='/create-project' element={<CreateProjectPage/>}/>
       <Route path='/login' element={<LoginPage/>}/>
+      <Route path='/register' element={<RegisterPage/>}/>
     </Routes>
     <Footer/>
     </BrowserRouter>

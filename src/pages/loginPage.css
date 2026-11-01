@@ -2,13 +2,17 @@
 .login-form {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    
+    justify-content: center;
 }
 input {
-    width: 60%;
     max-width: 100%;
     margin-left: 5px;
     padding: 5px;
+    margin-bottom: 10px;
+    border: 2px solid gray;
+}
+.login-form-group {
+    display: flex;
+    flex-direction: column;
     margin-bottom: 10px;
 }
