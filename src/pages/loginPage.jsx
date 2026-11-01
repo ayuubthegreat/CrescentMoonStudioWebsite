@@ -1,6 +1,7 @@
 
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { userLoginSchema, LoginUser } from '../slices/userSlice';
 import Section from '../components/Section';
@@ -16,10 +17,14 @@ export default function loginPage() {
         resolver: zodResolver(userLoginSchema),
     });
     const dispatch = useDispatch();
+    const nav = useNavigate();
     const onSubmit = async (data) => {
         try {
             await dispatch(LoginUser(data)).unwrap();
             reset();
+            setTimeout(() => {
+                nav('/');
+            }, 1000);
         } catch (error) {
             console.error(error);
         }
@@ -39,6 +44,9 @@ export default function loginPage() {
                 {errors.password && <span>{errors.password.message}</span>}
             </div>
             <button type="submit">Login</button>
+            <div className='info'>
+                <p>Don't have an account? <Link to="/register">Register here</Link>.</p>
+            </div>
         </form>
         
         </>
