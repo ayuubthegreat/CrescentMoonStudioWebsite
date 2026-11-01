@@ -46,7 +46,8 @@ export const GetUserByID = createAsyncThunk(
     async(_, { rejectWithValue }) => {
         try {
             const id = localStorage.getItem('user');
-            const response = await APICall({endpoint: `auth/getByID/${id}`, method: "GET"});
+            const response = await APICall({endpoint: `auth/user/${id}`, method: "GET"});
+            console.log(response);
             return response;
         } catch (error) {
             return rejectWithValue(error.message);

@@ -1,0 +1,27 @@
+.register-section {
+    background-color: black;
+}
+.register-form {
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.register-form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.register-form-group label {
+    margin-bottom: 5px;
+}
+.register-form-group input {
+    padding: 10px;
+    
+}
+.register-form button {
+    padding: 10px 20px;
+    cursor: pointer;
+}

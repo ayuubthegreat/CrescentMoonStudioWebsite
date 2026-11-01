@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { userRegisterSchema, RegisterUser } from '../slices/userSlice';
 import Section from '../components/Section';
+import './registerPage.css';
 
 export default function registerPage() {
     const {
@@ -25,8 +26,11 @@ export default function registerPage() {
         }
     };
     return (
-        <Section title="Register" description={<>
-            <p>A</p>
+        <>
+        <Section add_class="register-section" title="Register" description={<>
+            <p>Ak</p>
+            
+            </>} />
             <form className='register-form' onSubmit={handleSubmit(onSubmit)}>
                 <div className='register-form-group'>
                 <label>Username</label>
@@ -45,6 +49,7 @@ export default function registerPage() {
             </div>
             <button type="submit">Register</button>
         </form>
-            </>} />
+        </>
+        
     );
 }
