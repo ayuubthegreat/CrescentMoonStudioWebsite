@@ -1,10 +1,12 @@
 import Section from "../components/Section"
+import { useEffect } from "react"
 import './about.css'
 import cmsLogo from "../assets/cmsLogo.png"
 import { BASE_DATA } from "../funcs/BASE_DATA"
 import { Link } from "react-router-dom"
 
 export const AboutPage = () => {
+   
     const secTitles = ["Our Personality", "Our Values", "Our Pricing Strategy", "Our Product Variety", "Our Head"]
     const secDescs = [(<>
     <div className="split-section">
@@ -77,6 +79,7 @@ export const AboutPage = () => {
     }
     return (
         <>
+            <title>About | Crescent Moon Studio</title>
              <div className="center about-title-card">
                 <h1>About</h1>
                 <img src={cmsLogo} width={100}/>

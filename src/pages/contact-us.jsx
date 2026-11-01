@@ -11,6 +11,7 @@ import './contact-us.css'
 export const ContactUsPage = () => {
     return (
         <>
+        <title>Contact Us | Crescent Moon Studio</title>
         <div className="contact-us-page">
         <Section title="Contact Information" description="You want to contact us? Great! Here's our information: ">
             <div className="contact-us-section">

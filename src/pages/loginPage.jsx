@@ -31,6 +31,7 @@ export default function loginPage() {
     };
     return (
         <>
+        <title>Login | Crescent Moon Studio</title>
         <div className="login-section">
         <Section add_class="login-intro-section" title="Login" description="Access your account" />
  <form className='login-form' onSubmit={handleSubmit(onSubmit)}>

@@ -26,6 +26,7 @@ export default function registerPage() {
     };
     return (
         <>
+        <title>Register | Crescent Moon Studio</title>
         <div className="register-section">
         <Section title="Register" description={<>
             <h4>Create an account to get started</h4>

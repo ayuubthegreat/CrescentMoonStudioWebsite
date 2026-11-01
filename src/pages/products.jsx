@@ -24,6 +24,7 @@ export function ScheduledProductsPage() {
     }
     return (
         <>
+        <title>Scheduled Projects | Crescent Moon Studio</title>
         <div className="page-header">
             <h1>Scheduled Projects</h1>
             <p>This is where you can find our projects, hard at work at our studio.</p>
@@ -94,6 +95,7 @@ export function ProductsPage() {
    }
     return (
         <>
+        <title>Products | Crescent Moon Studio</title>
          <div className="page-header">
             <h1>Products</h1>
             <p>This is where you can find the products that we have released, and where to find them.</p>

@@ -4,6 +4,7 @@ import Section from "../components/Section";
 export default function TermsOfService()  {
     return (
         <>
+        <title>Terms of Service | Crescent Moon Studio</title>
         <Section add_class="terms-of-service-page center">
             <Section add_class="terms-of-service-header" title="Download the terms of service here."></Section>
             <Section add_class="terms-of-service-content">

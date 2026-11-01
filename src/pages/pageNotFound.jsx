@@ -6,6 +6,7 @@ import kamConfused from "../assets/kamConfused.png"
 export default function PageNotFound() {
 return (
     <>
+    <title>Error-404 | Page Not Found | Crescent Moon Studio</title>
     <Section add_class={" split-section right-split-section" } height={600}>
         <Section add_class={"img-section"}>
                <img className="img" src={kamConfused}/>

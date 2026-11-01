@@ -8,6 +8,7 @@ import { BASE_DATA } from "../funcs/BASE_DATA";
 export default function Home() {
     return (
         <>
+        <title>Home | Crescent Moon Studio</title>
         <div className="page home-page">
             <Section background_img_style={`url(${titleGif}`} height={400} add_class={"title-section center"}>
                 <div className="section-header">
