@@ -41,6 +41,19 @@ export const RegisterUser = createAsyncThunk(
     }
 );
 
+export const GetUserByID = createAsyncThunk(
+    'user/getByID',
+    async(_, { rejectWithValue }) => {
+        try {
+            const id = localStorage.getItem('user');
+            const response = await APICall({endpoint: `auth/getByID/${id}`, method: "GET"});
+            return response;
+        } catch (error) {
+            return rejectWithValue(error.message);
+        }
+    }
+);
+
 
 
 const userSlice = createSlice({
@@ -81,6 +94,21 @@ const userSlice = createSlice({
                 localStorage.setItem('user', action.payload.data.id);
             })
             .addCase(RegisterUser.rejected, (state, action) => {
+                state.user = null;
+                state.isAuthenticated = false;
+                localStorage.removeItem('user');
+            })
+            .addCase(GetUserByID.pending, (state) => {
+                state.user = null;
+                state.isAuthenticated = false;
+                localStorage.removeItem('user');
+            })
+            .addCase(GetUserByID.fulfilled, (state, action) => {
+                state.user = action.payload.data;
+                state.isAuthenticated = true;
+                localStorage.setItem('user', action.payload.data.id);
+            })
+            .addCase(GetUserByID.rejected, (state, action) => {
                 state.user = null;
                 state.isAuthenticated = false;
                 localStorage.removeItem('user');

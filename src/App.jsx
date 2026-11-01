@@ -13,6 +13,7 @@ import { AboutPage } from './pages/about'
 import { ContactUsPage } from './pages/contact-us'
 import { useDispatch, useSelector } from 'react-redux'
 import { GetAllProjects } from './slices/projectsSlice'
+import { GetUserByID } from './slices/userSlice'
 import { CreateProjectPage } from './pages/createProject'
 
 function App() {
@@ -22,6 +23,9 @@ function App() {
   useEffect(() => {
    dispatch(GetAllProjects());
    console.log("Projects found: " + projects);
+   if (localStorage.getItem('user')) {
+       dispatch(GetUserByID());
+   }
   }, [dispatch])
   return (
     <>
