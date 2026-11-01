@@ -42,7 +42,7 @@ function App() {
       <Route path='/about' element={<AboutPage/>}/>
       <Route path='/contact' element={<ContactUsPage/>}/>
       <Route path='/create-project' element={<CreateProjectPage/>}/>
-      <Route path='/login' element={<LoginPage/>}/>
+      <Route path='/login/*' element={<LoginPage/>}/>
       <Route path='/register' element={<RegisterPage/>}/>
     </Routes>
     <Footer/>

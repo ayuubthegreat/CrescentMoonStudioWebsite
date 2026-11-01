@@ -18,6 +18,9 @@ export default function loginPage() {
     });
     const dispatch = useDispatch();
     const nav = useNavigate();
+    const serviceLinks = [
+        {label: "gitspedia", url: "https://gitspedia.org/auth"}
+    ]
     const onSubmit = async (data) => {
         try {
             await dispatch(LoginUser(data)).unwrap();
