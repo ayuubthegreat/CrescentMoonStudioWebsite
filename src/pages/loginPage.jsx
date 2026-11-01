@@ -6,6 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { userLoginSchema, LoginUser } from '../slices/userSlice';
 import Section from '../components/Section';
 import './loginPage.css'
+import { useEffect, useState } from 'react';
 
 export default function loginPage() {
     const {
@@ -15,12 +16,26 @@ export default function loginPage() {
         reset,
     } = useForm({
         resolver: zodResolver(userLoginSchema),
-    });
+    }); 
+    const [isRedirect, setIsRedirect] = useState(false);
+    const [redirectService, setRedirectService] = useState(null);
+    useEffect(() => {
+        determineIfRedirectValid();
+    }, [isRedirect])
+   
     const dispatch = useDispatch();
     const nav = useNavigate();
-    const serviceLinks = [
-        {label: "gitspedia", url: "https://gitspedia.org/auth"}
-    ]
+    const serviceRedirectInfo = [{label: "gitspedia", redirectHref: "https://www.gitspedia.org/auth"}];
+    const determineIfRedirectValid = () => {
+        const linkParts = window.location.href.split('/');
+        if (linkParts.length != 5) 
+            return false; 
+        console.log(linkParts);
+        if (linkParts[4] === "gitspedia") {
+            setIsRedirect(true);
+            setRedirectService("gitspedia");
+        }
+    }
     const onSubmit = async (data) => {
         try {
             await dispatch(LoginUser(data)).unwrap();
@@ -32,11 +47,12 @@ export default function loginPage() {
             console.error(error);
         }
     };
+    
     return (
         <>
         <title>Login | Crescent Moon Studio</title>
         <div className="login-section">
-        <Section add_class="login-intro-section" title="Login" description="Access your account" />
+        <Section add_class="login-intro-section" title="Sign in" description="Access your account" />
  <form className='login-form' onSubmit={handleSubmit(onSubmit)}>
             <div className='login-form-group'>
                 <label>Email</label>
@@ -48,7 +64,7 @@ export default function loginPage() {
                 <input type="password" placeholder="Enter your password" {...register('password')} />
                 {errors.password && <span>{errors.password.message}</span>}
             </div>
-            <button type="submit">Login</button>
+            <button type="submit">Sign in</button>
             <div className='info'>
                 <p>Don't have an account? <Link to="/register">Register here</Link>.</p>
             </div>
