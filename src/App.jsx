@@ -23,6 +23,7 @@ function App() {
   useEffect(() => {
    dispatch(GetAllProjects());
    console.log("Projects found: " + projects);
+   console.log(localStorage.getItem('user'))
    if (localStorage.getItem('user')) {
        dispatch(GetUserByID());
    }

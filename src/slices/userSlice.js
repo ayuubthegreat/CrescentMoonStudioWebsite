@@ -71,7 +71,6 @@ const userSlice = createSlice({
             .addCase(LoginUser.pending, (state) => {
                 state.user = null;
                 state.isAuthenticated = false;
-                localStorage.removeItem('user');
             })
             .addCase(LoginUser.fulfilled, (state, action) => {
                 state.user = action.payload.data;
@@ -81,12 +80,10 @@ const userSlice = createSlice({
             .addCase(LoginUser.rejected, (state, action) => {
                 state.user = null;
                 state.isAuthenticated = false;
-                localStorage.removeItem('user');
             })
             .addCase(RegisterUser.pending, (state) => {
                 state.user = null;
                 state.isAuthenticated = false;
-                localStorage.removeItem('user');
             })
             .addCase(RegisterUser.fulfilled, (state, action) => {
                 state.user = action.payload.data;
@@ -96,12 +93,10 @@ const userSlice = createSlice({
             .addCase(RegisterUser.rejected, (state, action) => {
                 state.user = null;
                 state.isAuthenticated = false;
-                localStorage.removeItem('user');
             })
             .addCase(GetUserByID.pending, (state) => {
                 state.user = null;
                 state.isAuthenticated = false;
-                localStorage.removeItem('user');
             })
             .addCase(GetUserByID.fulfilled, (state, action) => {
                 state.user = action.payload.data;
@@ -111,7 +106,6 @@ const userSlice = createSlice({
             .addCase(GetUserByID.rejected, (state, action) => {
                 state.user = null;
                 state.isAuthenticated = false;
-                localStorage.removeItem('user');
             });
     },
 });
