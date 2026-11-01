@@ -1,5 +1,10 @@
 .register-section {
-    background-color: black;
+    background-image: linear-gradient(to right, #c0bdbd, #e0e0e0, #c0bdbd);
+    padding: 20px;
+    border: 10px solid rgb(163, 157, 157);
+}
+.register-intro-section .section-header {
+   padding: 10px;
 }
 .register-form {
     min-height: 50vh;
@@ -7,19 +12,22 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: white;
 }
 .register-form-group {
     margin-bottom: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
+    
 }
 .register-form-group label {
     margin-bottom: 5px;
 }
 .register-form-group input {
     padding: 10px;
-    
+    width: 70%;
 }
 .register-form button {
     padding: 10px 20px;

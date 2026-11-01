@@ -45,7 +45,7 @@ export const GetUserByID = createAsyncThunk(
     'user/getByID',
     async(_, { rejectWithValue }) => {
         try {
-            const id = localStorage.getItem('user');
+            const id = localStorage.getItem('c-account-user');
             const response = await APICall({endpoint: `auth/user/${id}`, method: "GET"});
             console.log(response);
             return response;
@@ -63,7 +63,7 @@ const userSlice = createSlice({
     reducers: {
         logout: (state) => {
             state.user = null;
-            localStorage.removeItem('user');
+            localStorage.removeItem('c-account-user');
             state.isAuthenticated = false;
         },
     },
@@ -76,7 +76,7 @@ const userSlice = createSlice({
             .addCase(LoginUser.fulfilled, (state, action) => {
                 state.user = action.payload.data;
                 state.isAuthenticated = true;
-                localStorage.setItem('user', action.payload.data.id);
+                localStorage.setItem('c-account-user', action.payload.data.id);
             })
             .addCase(LoginUser.rejected, (state, action) => {
                 state.user = null;
@@ -89,7 +89,7 @@ const userSlice = createSlice({
             .addCase(RegisterUser.fulfilled, (state, action) => {
                 state.user = action.payload.data;
                 state.isAuthenticated = true;
-                localStorage.setItem('user', action.payload.data.id);
+                localStorage.setItem('c-account-user', action.payload.data.id);
             })
             .addCase(RegisterUser.rejected, (state, action) => {
                 state.user = null;
@@ -102,7 +102,7 @@ const userSlice = createSlice({
             .addCase(GetUserByID.fulfilled, (state, action) => {
                 state.user = action.payload.data;
                 state.isAuthenticated = true;
-                localStorage.setItem('user', action.payload.data.id);
+                localStorage.setItem('c-account-user', action.payload.data.id);
             })
             .addCase(GetUserByID.rejected, (state, action) => {
                 state.user = null;

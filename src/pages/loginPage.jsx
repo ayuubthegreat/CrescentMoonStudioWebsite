@@ -31,7 +31,8 @@ export default function loginPage() {
     };
     return (
         <>
-        <Section add_class="login-section" title="Login" description="Access your account" />
+        <div className="login-section">
+        <Section add_class="login-intro-section" title="Login" description="Access your account" />
  <form className='login-form' onSubmit={handleSubmit(onSubmit)}>
             <div className='login-form-group'>
                 <label>Email</label>
@@ -48,7 +49,7 @@ export default function loginPage() {
                 <p>Don't have an account? <Link to="/register">Register here</Link>.</p>
             </div>
         </form>
-        
+        </div>
         </>
     )
 }

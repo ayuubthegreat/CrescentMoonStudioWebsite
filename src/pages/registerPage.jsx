@@ -1,4 +1,3 @@
-
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -27,9 +26,10 @@ export default function registerPage() {
     };
     return (
         <>
-        <Section add_class="register-section" title="Register" description={<>
-            <p>Ak</p>
-            
+        <div className="register-section">
+        <Section title="Register" description={<>
+            <h4>Create an account to get started</h4>
+            <p>Fill in the details below to create your account.</p>
             </>} />
             <form className='register-form' onSubmit={handleSubmit(onSubmit)}>
                 <div className='register-form-group'>
@@ -49,6 +49,7 @@ export default function registerPage() {
             </div>
             <button type="submit">Register</button>
         </form>
+        </div>
         </>
         
     );
