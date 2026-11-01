@@ -57,6 +57,7 @@ const img = images[val.relative_image_link];
                         <h1>{val.title}</h1>
                         <h6>{val.shortDesc}</h6>
                         <h3>Planned release date: {releaseDate.toLocaleDateString(undefined, {year: "numeric", month: "long", day: "numeric"})}</h3>  
+                        <Link to={val.gitspedia_href}>View Details on Gitspedia</Link>
                         </div>
                     </Section>
                     </>
