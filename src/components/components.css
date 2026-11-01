@@ -222,7 +222,7 @@ a:hover {
 }
 .about-content-parent {
     padding: 10px;
-    background-color: wheat;
+    background-color: darkgray
 }
 .navbar-user-profile {
     display: flex;
