@@ -26,9 +26,8 @@ export default function loginPage() {
     };
     return (
         <>
-        <Section title="Login" description={<>
-            <p>A</p>
-            <form className='login-form' onSubmit={handleSubmit(onSubmit)}>
+        <Section add_class="login-section" title="Login" description="Access your account" />
+ <form className='login-form' onSubmit={handleSubmit(onSubmit)}>
             <div className='login-form-group'>
                 <label>Email</label>
                 <input placeholder="Enter your email" {...register('email')} />
@@ -41,8 +40,6 @@ export default function loginPage() {
             </div>
             <button type="submit">Login</button>
         </form>
-            </>} />
-
         
         </>
     )
