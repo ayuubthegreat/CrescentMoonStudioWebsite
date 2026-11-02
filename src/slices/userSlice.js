@@ -15,6 +15,7 @@ export const userLoginSchema = z.object({
 export const initialState = {
     user: null,
     isAuthenticated: false,
+    isFromExternal: false,
 };
 
 export const LoginUser = createAsyncThunk(
@@ -66,6 +67,9 @@ const userSlice = createSlice({
             localStorage.removeItem('c-account-user');
             state.isAuthenticated = false;
         },
+        setFromExternal: (state, action) => {
+            state.isFromExternal = action.payload;
+        },
     },
     extraReducers: (builder) => {
         builder
@@ -111,5 +115,5 @@ const userSlice = createSlice({
     },
 });
 
-export const { logout } = userSlice.actions;
+export const { logout, setFromExternal } = userSlice.actions;
 export default userSlice.reducer;

@@ -13,14 +13,18 @@ export default function Navbar() {
     const [isEnabled, setIsEnabled] = useState(false);
     const navbarButtonsNames = ["About Us", "Products", "Schedule"]
     const navbarButtonsLinks = ["/about", "/finished-products", "/products-schedule"]
-    const {user} = useSelector((state) => state.user);
+    const {user, isFromExternal} = useSelector((state) => state.user);
     return (
         <>
         <nav className="navbar">
             <Section children={<>
-                <img className="title-img" onClick={() => {nav('/')}} src={cmsLogo} width={200}></img>
+                <img className="title-img" onClick={() => {
+                    if (!isFromExternal) {
+                        nav('/')
+                    }
+                    }} src={cmsLogo} width={200}></img>
                 </>}></Section>
-            <Section add_class="navbar-large-display" children={<>
+           {!isFromExternal && (<Section add_class="navbar-large-display" children={<>
                 <ButtonBox buttonTextArr={navbarButtonsNames} linkArr={navbarButtonsLinks}></ButtonBox>
                 {user && (
                     <div className="navbar-user-profile">
@@ -34,9 +38,9 @@ export default function Navbar() {
                  {!user && (
                     <Link className="navbar-user-profile-button navbar-user-profile-login-button" to="/login">Login</Link>
                 )}
-                </>}></Section>
+                </>}></Section>)}
                 
-            <div className="navbar-small-display">
+            {!isFromExternal && (<div className="navbar-small-display">
                 <button className="navbar-small-display-button" onClick={(e) => {
                     setIsEnabled(!isEnabled);
                 }}>=</button>
@@ -56,7 +60,7 @@ export default function Navbar() {
                     <button onClick={() => {setIsEnabled(false); nav('/login')}} className="navbar-user-profile-button navbar-user-profile-login-button">Login</button>
                 )}
                 </div>
-            </div>
+            </div>)}
         </nav>
         </>
     )

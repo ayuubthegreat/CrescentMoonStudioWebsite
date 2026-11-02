@@ -1,5 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
+import { setFromExternal } from '../slices/userSlice';
+import { Link } from 'react-router-dom';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { userRegisterSchema, RegisterUser } from '../slices/userSlice';
 import Section from '../components/Section';
@@ -49,6 +51,9 @@ export default function registerPage() {
                 {errors.password && <span>{errors.password.message}</span>}
             </div>
             <button type="submit">Register</button>
+            <div className='info'>
+                <p>Already have an account? <Link to="/login">Login here</Link>.</p>
+            </div>
         </form>
         </div>
         </>

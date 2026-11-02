@@ -20,6 +20,7 @@ function App() {
   const [count, setCount] = useState(0)
   const dispatch = useDispatch();
   const {projects} = useSelector((state) => state.projects);
+  const {isFromExternal} = useSelector((state) => state.user);
   useEffect(() => {
    dispatch(GetAllProjects());
    console.log("Projects found: " + projects);
@@ -45,7 +46,7 @@ function App() {
       <Route path='/login/*' element={<LoginPage/>}/>
       <Route path='/register' element={<RegisterPage/>}/>
     </Routes>
-    <Footer/>
+    {!isFromExternal && <Footer/>}
     </BrowserRouter>
     </>
   )

@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { userLoginSchema, LoginUser } from '../slices/userSlice';
+import { userLoginSchema, LoginUser, setFromExternal } from '../slices/userSlice';
 import Section from '../components/Section';
 import './loginPage.css'
 import { useEffect, useState } from 'react';
@@ -32,6 +32,7 @@ export default function loginPage() {
         if (linkParts.length != 5) 
             return false; 
         console.log(linkParts);
+        dispatch(setFromExternal(true));
         if (linkParts[4] === "gitspedia") {
             setIsRedirect(true);
             setRedirectService("gitspedia");
@@ -43,6 +44,7 @@ export default function loginPage() {
         try {
             await dispatch(LoginUser(data)).unwrap();
             reset();
+            console.log(user);
             setTimeout(() => {
                 if (isRedirect) {
                     if (redirectService === "gitspedia") {
@@ -51,7 +53,7 @@ export default function loginPage() {
                 } else {
                     nav('/');
                 }
-            }, 1000);
+            }, 2000);
         } catch (error) {
             console.error(error);
         }
