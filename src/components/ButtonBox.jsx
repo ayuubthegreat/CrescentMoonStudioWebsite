@@ -5,11 +5,9 @@ export default function ButtonBox({add_class = "", buttonTextArr = [""], linkArr
     return (
         <>
         <div className={`buttonBox ${add_class}`}>
-             {(buttonTextArr.map((val, i) => (
-            <>
-            <Link to={linkArr[i]} onClick={onClick}>{val}</Link>
-            </>
-        )))}
+             {buttonTextArr.map((val, i) => (
+                <Link key={`${linkArr[i]}-${i}`} to={linkArr[i]} onClick={onClick}>{val}</Link>
+            ))}
         </div>
        
         </>

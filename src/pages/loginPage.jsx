@@ -17,7 +17,7 @@ export default function loginPage() {
     } = useForm({
         resolver: zodResolver(userLoginSchema),
     }); 
-    const {user} = useSelector((state) => state.auth);
+    const {user} = useSelector((state) => state.user);
     const [isRedirect, setIsRedirect] = useState(false);
     const [redirectService, setRedirectService] = useState(null);
     useEffect(() => {
@@ -46,7 +46,7 @@ export default function loginPage() {
             setTimeout(() => {
                 if (isRedirect) {
                     if (redirectService === "gitspedia") {
-                        window.location.href = `https://www.gitspedia.org/auth?id=${user.id}`;
+                        window.location.href = `http://localhost:58126/auth/?id=${user.id}`;
                     }
                 } else {
                     nav('/');
