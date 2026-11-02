@@ -1,6 +1,6 @@
 
 import { useForm } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { userLoginSchema, LoginUser } from '../slices/userSlice';
@@ -17,6 +17,7 @@ export default function loginPage() {
     } = useForm({
         resolver: zodResolver(userLoginSchema),
     }); 
+    const {user} = useSelector((state) => state.auth);
     const [isRedirect, setIsRedirect] = useState(false);
     const [redirectService, setRedirectService] = useState(null);
     useEffect(() => {
@@ -34,6 +35,8 @@ export default function loginPage() {
         if (linkParts[4] === "gitspedia") {
             setIsRedirect(true);
             setRedirectService("gitspedia");
+        } else {
+             nav('/error');
         }
     }
     const onSubmit = async (data) => {
@@ -41,7 +44,13 @@ export default function loginPage() {
             await dispatch(LoginUser(data)).unwrap();
             reset();
             setTimeout(() => {
-                nav('/');
+                if (isRedirect) {
+                    if (redirectService === "gitspedia") {
+                        window.location.href = `https://www.gitspedia.org/auth?id=${user.id}`;
+                    }
+                } else {
+                    nav('/');
+                }
             }, 1000);
         } catch (error) {
             console.error(error);
@@ -52,7 +61,7 @@ export default function loginPage() {
         <>
         <title>Login | Crescent Moon Studio</title>
         <div className="login-section">
-        <Section add_class="login-intro-section" title="Sign in" description="Access your account" />
+        <Section add_class="login-intro-section" title="Sign in" description={`${isRedirect ? `Login to continue to ${redirectService}` : ""}`} />
  <form className='login-form' onSubmit={handleSubmit(onSubmit)}>
             <div className='login-form-group'>
                 <label>Email</label>
