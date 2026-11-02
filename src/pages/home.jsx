@@ -1,10 +1,11 @@
 import Section from "../components/Section";
-import titleGif from "../assets/cms_logo_animation_for_gits10-17-2026_23-15-03.gif"
+import titleGif from "../assets/cmsLogoAnimated.gif"
 import kamJumpingUp from "../assets/kamJumpingUp.png"
 import kamReadingABook from "../assets/kamReadingABook.png"
 import ButtonBox from "../components/ButtonBox";
 import GridSection from "../components/GridSection";
 import { BASE_DATA } from "../funcs/BASE_DATA";
+import './home.css';
 export default function Home() {
     return (
         <>

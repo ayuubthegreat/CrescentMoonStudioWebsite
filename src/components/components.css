@@ -12,8 +12,12 @@
 
 }
 .title-section {
-    border-bottom: 10px solid gray;
+    border-bottom: 10px solid rgb(88, 81, 81);
+    background-size: cover;
+    background-position: center;
+    background-color: #7a6969;
 }
+
 .title-textbox {
     color: rgb(65, 64, 64);
     text-shadow: 0px 0px 5px white;
