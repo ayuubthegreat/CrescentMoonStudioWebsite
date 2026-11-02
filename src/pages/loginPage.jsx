@@ -7,6 +7,7 @@ import { userLoginSchema, LoginUser, setFromExternal } from '../slices/userSlice
 import Section from '../components/Section';
 import './loginPage.css'
 import { useEffect, useState } from 'react';
+import { determineIfRedirectValid } from '../funcs/API_funcs';
 
 export default function loginPage() {
     const {
@@ -17,38 +18,25 @@ export default function loginPage() {
     } = useForm({
         resolver: zodResolver(userLoginSchema),
     }); 
-    const {user} = useSelector((state) => state.user);
-    const [isRedirect, setIsRedirect] = useState(false);
+    const {user, isFromExternal} = useSelector((state) => state.user);
     const [redirectService, setRedirectService] = useState(null);
     useEffect(() => {
-        determineIfRedirectValid();
-    }, [isRedirect])
+        determineIfRedirectValid(setRedirectService, dispatch, nav);
+    }, [isFromExternal])
    
     const dispatch = useDispatch();
     const nav = useNavigate();
     const serviceRedirectInfo = [{label: "gitspedia", redirectHref: "https://www.gitspedia.org/auth"}];
-    const determineIfRedirectValid = () => {
-        const linkParts = window.location.href.split('/');
-        if (linkParts.length != 5) 
-            return false; 
-        console.log(linkParts);
-        dispatch(setFromExternal(true));
-        if (linkParts[4] === "gitspedia") {
-            setIsRedirect(true);
-            setRedirectService("gitspedia");
-        } else {
-             nav('/error');
-        }
-    }
+    
     const onSubmit = async (data) => {
         try {
             await dispatch(LoginUser(data)).unwrap();
             reset();
             console.log(user);
             setTimeout(() => {
-                if (isRedirect) {
+                if (isFromExternal) {
                     if (redirectService === "gitspedia") {
-                        window.location.href = `http://localhost:58126/auth/?id=${user.id}`;
+                        window.location.href = `https://www.gitspedia.org/auth/?id=${user.id}`;
                     }
                 } else {
                     nav('/');
@@ -63,7 +51,7 @@ export default function loginPage() {
         <>
         <title>Login | Crescent Moon Studio</title>
         <div className="login-section">
-        <Section add_class="login-intro-section" title="Sign in" description={`${isRedirect ? `Login to continue to ${redirectService}` : ""}`} />
+        <Section add_class="login-intro-section" title="Sign in" description={`${isFromExternal ? `Login to continue to ${redirectService}` : ""}`} />
  <form className='login-form' onSubmit={handleSubmit(onSubmit)}>
             <div className='login-form-group'>
                 <label>Email</label>
@@ -77,7 +65,7 @@ export default function loginPage() {
             </div>
             <button type="submit">Sign in</button>
             <div className='info'>
-                <p>Don't have an account? <Link to="/register">Register here</Link>.</p>
+                <p>Don't have an account? <Link to={`/register${isFromExternal ? `/${redirectService}` : ""}`}>Register here</Link>.</p>
             </div>
         </form>
         </div>

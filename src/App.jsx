@@ -44,7 +44,7 @@ function App() {
       <Route path='/contact' element={<ContactUsPage/>}/>
       <Route path='/create-project' element={<CreateProjectPage/>}/>
       <Route path='/login/*' element={<LoginPage/>}/>
-      <Route path='/register' element={<RegisterPage/>}/>
+      <Route path='/register/*' element={<RegisterPage/>}/>
     </Routes>
     {!isFromExternal && <Footer/>}
     </BrowserRouter>

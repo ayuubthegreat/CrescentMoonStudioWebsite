@@ -1,5 +1,8 @@
 import { useForm } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { determineIfRedirectValid } from '../funcs/API_funcs';
 import { setFromExternal } from '../slices/userSlice';
 import { Link } from 'react-router-dom';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -8,6 +11,8 @@ import Section from '../components/Section';
 import './registerPage.css';
 
 export default function registerPage() {
+    const {user, isFromExternal} = useSelector((state) => state.user);
+    const [redirectService, setRedirectService] = useState(null);
     const {
         register,
         handleSubmit,
@@ -16,12 +21,26 @@ export default function registerPage() {
     } = useForm({
         resolver: zodResolver(userRegisterSchema),
     });
+    useEffect(() => {
+        determineIfRedirectValid(setRedirectService, dispatch, nav);
+    }, [isFromExternal]);
     const dispatch = useDispatch();
+    const nav = useNavigate();
     const onSubmit = async (data) => {
         try {
             data.role = "PENDING_APPROVAL";
             await dispatch(RegisterUser(data)).unwrap();
             reset();
+            setTimeout(() => {
+            if (isFromExternal) {
+                if (redirectService === "gitspedia") {
+                    nav(`/login/${redirectService}`);
+                }
+            } else {
+                nav('/');
+            }
+            }, 3000);
+
         } catch (error) {
             console.error(error);
         }
@@ -52,7 +71,7 @@ export default function registerPage() {
             </div>
             <button type="submit">Register</button>
             <div className='info'>
-                <p>Already have an account? <Link to="/login">Login here</Link>.</p>
+                <p>Already have an account? <Link to={`/login${isFromExternal ? `/${redirectService}` : ""}`}>Login here</Link>.</p>
             </div>
         </form>
         </div>
