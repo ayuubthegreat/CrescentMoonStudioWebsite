@@ -14,7 +14,7 @@ import { ContactUsPage } from './pages/contact-us'
 import { useDispatch, useSelector } from 'react-redux'
 import { GetAllProjects } from './slices/projectsSlice'
 import { GetUserByID } from './slices/userSlice'
-import { CreateProjectPage } from './pages/createProject'
+import { CreateUpdateProjectPage } from './pages/createUpdateProject'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -42,7 +42,7 @@ function App() {
       <Route path='/finished-products' element={<ProductsPage/>}/>
       <Route path='/about' element={<AboutPage/>}/>
       <Route path='/contact' element={<ContactUsPage/>}/>
-      <Route path='/create-project' element={<CreateProjectPage/>}/>
+      <Route path='/create-project' element={<CreateUpdateProjectPage/>}/>
       <Route path='/login/*' element={<LoginPage/>}/>
       <Route path='/register/*' element={<RegisterPage/>}/>
     </Routes>
