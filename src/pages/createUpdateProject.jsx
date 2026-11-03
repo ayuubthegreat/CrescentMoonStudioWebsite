@@ -9,6 +9,8 @@ export const CreateUpdateProjectPage = ({project = null}) => {
     const {
         register,
         handleSubmit,
+        setValue,
+        getValues,
         formState: { errors }
     } = useForm({
         resolver: zodResolver(projectSchema)
@@ -48,7 +50,7 @@ export const CreateUpdateProjectPage = ({project = null}) => {
         <div key="form-page-2" className="form-page">
             <div className='form-group'>
                 <label>Release Date</label>
-                <input type="date" id="release_date" {...register("release_date", {valueAsDate: true})} />
+                <input type="date" id="release_date" {...register("release_date")} onChange={(e) => setValue("release_date", e.target.value)} />
                 {errors.release_date && <span className="error">{errors.release_date.message}</span>}
             </div>
             <div className="form-group">
