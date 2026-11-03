@@ -12,6 +12,7 @@ import { useState } from "react";
 export function ScheduledProductsPage() {
 
      const {projects} = useSelector((state) => state.projects);
+     const {user} = useSelector((state) => state.user);
     const loadedProjects = projects ?? [];
     const getStageOfProduction = (percentage = -1)  => {
         if (percentage < 0) return ["white", "Planning Phase"]
@@ -45,6 +46,9 @@ const img = images[val.relative_image_link];
                     <>
                     <Section background_img_style={`url(${img})`}>
                         <div className="project-card">
+                            {user && user.role != "USER" && (
+                                <Link to={`/edit-project/${val.id}`}>Edit Project</Link>
+                            )}
                           <p className="project-card-percentage" style={{backgroundColor: `${productionPhase[0]}`}}>{productionPhase[1]} | {beganProduction ? Math.min(val.percentage, 100) + "%" : "Not Began Yet"}</p>
                           <div className="project-card-tags-parent">
                                 {val.tags && val.tags.split(',').map((tag) => {

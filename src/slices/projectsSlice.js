@@ -7,12 +7,12 @@ import z, { minLength } from "zod"
 export const projectSchema = z.object({
     title: z.string().min(5, "Title must be 5 characters long"),
     description: z.string().min(5, "Description must be 5 characters long").max(100, "Description is too long."),
-    shortDesc: z.string().max(30, "Short description's length exceeded."),
-    gitspediaLink: z.string().min(5, "Invalid Gitspedia Link"),
+    shortDesc: z.string().max(50, "Short description's length exceeded."),
+    gitspedia_href: z.string().min(5, "Invalid Gitspedia Link"),
     release_date: z.string().min(10, "Invalid date format"),
     tags: z.string(),
     percentage: z.float64(),
-    display_img_link: z.string(),
+    relative_image_link: z.string(),
 })
 
 export const defaultState = {

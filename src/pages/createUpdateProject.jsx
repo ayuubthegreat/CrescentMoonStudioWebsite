@@ -20,11 +20,11 @@ export const CreateUpdateProjectPage = ({project = null}) => {
             title: "A project",
             description: "A project description.",
             shortDesc: "A short project description.",
-            gitspediaLink: "https://www.gitspedia.org",
+            gitspedia_href: "https://www.gitspedia.org",
             release_date: new Date().toISOString().split("T")[0],
             tags: "software",
             percentage: 0,
-            display_img_link: "../assets/cmsLogo.png"
+            relative_image_link: "../assets/cmsLogo.png"
         }
     });
     const dispatch = useDispatch();
@@ -34,9 +34,10 @@ export const CreateUpdateProjectPage = ({project = null}) => {
     const onSubmit = async (data) => {
         // Handle form submission here
         console.log(data);
+        data.id = project.id;
         try {
             if (isEditing) {
-                await dispatch(UpdateProject({ id: project.id, data })).unwrap();
+                await dispatch(UpdateProject(data)).unwrap();
             } else {
                 await dispatch(AddProject(data)).unwrap();
             }
@@ -64,9 +65,9 @@ export const CreateUpdateProjectPage = ({project = null}) => {
                 {errors.description && <span className="error">{errors.description.message}</span>}
             </div>
             <div className="form-group">
-                <label htmlFor="gitspediaLink">Gitspedia Link</label>
-                <input id="gitspediaLink" {...register("gitspediaLink")} />
-                {errors.gitspediaLink && <span className="error">{errors.gitspediaLink.message}</span>}
+                <label htmlFor="gitspedia_href">Gitspedia Link</label>
+                <input id="gitspedia_href" {...register("gitspedia_href")} />
+                {errors.gitspedia_href && <span className="error">{errors.gitspedia_href.message}</span>}
             </div>
         </div>
         </>),
@@ -88,9 +89,9 @@ export const CreateUpdateProjectPage = ({project = null}) => {
                 {errors.percentage && <span className="error">{errors.percentage.message}</span>}
             </div>
             <div className="form-group">
-                <label htmlFor="display_img_link">Display Image Link</label>
-                <input id="display_img_link" {...register("display_img_link")} />
-                {errors.display_img_link && <span className="error">{errors.display_img_link.message}</span>}
+                <label htmlFor="relative_image_link">Display Image Link</label>
+                <input id="relative_image_link" {...register("relative_image_link")} />
+                {errors.relative_image_link && <span className="error">{errors.relative_image_link.message}</span>}
             </div>
         </div>
         </>)

@@ -15,6 +15,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { GetAllProjects } from './slices/projectsSlice'
 import { GetUserByID } from './slices/userSlice'
 import { CreateUpdateProjectPage } from './pages/createUpdateProject'
+import AuthenticationFirewall from './components/AuthenticationFirewall'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -24,8 +25,8 @@ function App() {
   useEffect(() => {
    dispatch(GetAllProjects());
    console.log("Projects found: " + projects);
-   console.log(localStorage.getItem('user'))
-   if (localStorage.getItem('user')) {
+   console.log(localStorage.getItem('c-account-user'))
+   if (localStorage.getItem('c-account-user')) {
        dispatch(GetUserByID());
    }
   }, [dispatch])
@@ -42,9 +43,13 @@ function App() {
       <Route path='/finished-products' element={<ProductsPage/>}/>
       <Route path='/about' element={<AboutPage/>}/>
       <Route path='/contact' element={<ContactUsPage/>}/>
-      <Route path='/create-project' element={<CreateUpdateProjectPage/>}/>
+      <Route path='/create-project' element={<AuthenticationFirewall needsAuthentication={true}><CreateUpdateProjectPage/></AuthenticationFirewall>}/>
       <Route path='/login/*' element={<LoginPage/>}/>
       <Route path='/register/*' element={<RegisterPage/>}/>
+      {projects.map((project) => (
+        <Route key={project.id} path={`/edit-project/${project.id}`} element={<CreateUpdateProjectPage project={project}/>} />
+      ))}
+
     </Routes>
     {!isFromExternal && <Footer/>}
     </BrowserRouter>
