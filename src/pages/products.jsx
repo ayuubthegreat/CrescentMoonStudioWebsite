@@ -79,7 +79,7 @@ const img = images[val.relative_image_link];
 
 export function ProductsPage() {
    const {projects} = useSelector((state) => state.projects);
-  
+  const {user} = useSelector((state) => state.user);
    const getTags = function(proj) {
     return proj.tags.split(',');
    }
@@ -131,6 +131,9 @@ const img = images[val.relative_image_link];
                 return (
                     <>
                     <Section background_img_style={`url(${img})`} add_class="finished-project-card">
+                        {user && user.role !== "USER" && (<>
+                        <Link to={`/edit-project/${val.id}`}>Edit Project</Link>
+                        </>)}
                         <p className="finished-project-card-version-text">Version {val.version_num}</p>
                         {val.version_percentage > 0 && (<>
                         <p>Next version (Version {val.version_num + 0.1}) in development: {val.version_percentage}% complete</p>

@@ -11,7 +11,7 @@ export default function Footer() {
             <div className="split-section">
                 <div>
                     <img src={aiLessLogo} width={150}/>
-                    <p>Crescent Moon Studio has a <i>general</i> no-AI policy. <br></br> <Link to={'/no-ai-exceptions'}>See exceptions.</Link></p>
+                    <p>{BASE_DATA.STUDIO_NAME} has a <i>general</i> no-AI policy. <br></br> <Link to={'/no-ai'}>See exceptions.</Link></p>
                 </div>
                 <ButtonBox buttonTextArr={["Terms of Service (readable!)"]} linkArr={["/terms"]}/>
             </div>

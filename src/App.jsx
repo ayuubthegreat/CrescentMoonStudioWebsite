@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { NoAIPolicyPage } from './pages/policy-documents'
 import {BrowserRouter, Route, Router, Routes} from 'react-router-dom'
 import LoginPage from './pages/loginPage'
 import RegisterPage from './pages/registerPage'
@@ -46,6 +47,7 @@ function App() {
       <Route path='/create-project' element={<AuthenticationFirewall needsAuthentication={true}><CreateUpdateProjectPage/></AuthenticationFirewall>}/>
       <Route path='/login/*' element={<LoginPage/>}/>
       <Route path='/register/*' element={<RegisterPage/>}/>
+      <Route path='/no-ai' element={<NoAIPolicyPage/>}/>
       {projects.map((project) => (
         <Route key={project.id} path={`/edit-project/${project.id}`} element={<CreateUpdateProjectPage project={project}/>} />
       ))}
