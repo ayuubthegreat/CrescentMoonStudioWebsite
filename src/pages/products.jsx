@@ -47,7 +47,7 @@ const img = images[val.relative_image_link];
                         <div className="project-card">
                           <p className="project-card-percentage" style={{backgroundColor: `${productionPhase[0]}`}}>{productionPhase[1]} | {beganProduction ? Math.min(val.percentage, 100) + "%" : "Not Began Yet"}</p>
                           <div className="project-card-tags-parent">
-                                {val.tags.split(',').map((tag) => {
+                                {val.tags && val.tags.split(',').map((tag) => {
                             return (
                                 <>
                                 <p className="project-card-tag">{tag[0].toUpperCase() + tag.substring(1)}</p>

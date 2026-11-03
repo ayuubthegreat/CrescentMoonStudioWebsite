@@ -1,8 +1,10 @@
 import './createUpdateProject.css'
 import { useForm } from "react-hook-form";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { projectSchema } from "../slices/projectsSlice";
+import { projectSchema, UpdateProject, AddProject } from "../slices/projectsSlice";
 import Section from '../components/Section';
 
 export const CreateUpdateProjectPage = ({project = null}) => {
@@ -13,13 +15,35 @@ export const CreateUpdateProjectPage = ({project = null}) => {
         getValues,
         formState: { errors }
     } = useForm({
-        resolver: zodResolver(projectSchema)
+        resolver: zodResolver(projectSchema),
+        defaultValues: project || {
+            title: "A project",
+            description: "A project description.",
+            shortDesc: "A short project description.",
+            gitspediaLink: "https://www.gitspedia.org",
+            release_date: new Date().toISOString().split("T")[0],
+            tags: "software",
+            percentage: 0,
+            display_img_link: "../assets/cmsLogo.png"
+        }
     });
+    const dispatch = useDispatch();
+    const nav = useNavigate();
     const isEditing = project !== null;
     const [currentPage, setCurrentPage] = useState(0);
-    const onSubmit = (data) => {
+    const onSubmit = async (data) => {
         // Handle form submission here
         console.log(data);
+        try {
+            if (isEditing) {
+                await dispatch(UpdateProject({ id: project.id, data })).unwrap();
+            } else {
+                await dispatch(AddProject(data)).unwrap();
+            }
+            nav("/projects");
+        } catch (error) {
+            console.error(error);
+        }
     };
     const formPages = [
         (<>
@@ -35,9 +59,9 @@ export const CreateUpdateProjectPage = ({project = null}) => {
                 {errors.shortDesc && <span className="error">{errors.shortDesc.message}</span>}
             </div>
             <div className="form-group">
-                <label htmlFor="longDesc">Long Description</label>
-                <textarea id="desc" {...register("desc")}></textarea>
-                {errors.desc && <span className="error">{errors.desc.message}</span>}
+                <label htmlFor="description">Long Description</label>
+                <textarea id="description" {...register("description")}></textarea>
+                {errors.description && <span className="error">{errors.description.message}</span>}
             </div>
             <div className="form-group">
                 <label htmlFor="gitspediaLink">Gitspedia Link</label>
