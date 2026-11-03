@@ -78,7 +78,7 @@
 }
 .section-header {
     border: 2px solid black;
-    padding: 50px 10px;
+    padding: 30px 10px;
     width: 80%;
     text-align: center;
     background-color: white;
@@ -90,8 +90,7 @@
 }
 .split-section {
     display: grid;
-    grid-template-columns: minmax(0, 1.4fr) minmax(0, 2fr);
-    
+    grid-template-columns: minmax(0, 2fr) minmax(0, 2fr);
 }
 .footer .split-section div {
     display: flex;
@@ -136,8 +135,8 @@
 }
 
 .split-section .section-header {
-   height: fit-content;
-   width: 90%;
+   
+   width: 100%;
    box-sizing: border-box;
    box-shadow:  0px 0px 10px 10px white;
    border-radius: 10px;
