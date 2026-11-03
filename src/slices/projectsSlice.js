@@ -6,7 +6,7 @@ import z, { minLength } from "zod"
 
 export const projectSchema = z.object({
     author: z.string(),
-    title: z.string(),
+    title: z.string().min(5, "Title must be 5 characters long"),
     desc: z.string().min(5, "Description must be 5 characters long").max(100, "Description is too long."),
     shortDesc: z.string().max(30, "Short description's length exceeded."),
     gitspediaLink: z.string().min(5, "Invalid Gitspedia Link"),

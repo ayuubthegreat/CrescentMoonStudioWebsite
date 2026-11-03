@@ -17,19 +17,54 @@ export const CreateUpdateProjectPage = ({project = null}) => {
     const [currentPage, setCurrentPage] = useState(0);
     const onSubmit = (data) => {
         // Handle form submission here
+        console.log(data);
     };
     const formPages = [
         (<>
-        <div className="form-page">
+        <div key="form-page-1" className="form-page">
             <div className="form-group">
-                <label htmlFor="title">Project Name</label>
+                <label htmlFor="title">Name</label>
                 <input id="title" {...register("title")} />
                 {errors.title && <span className="error">{errors.title.message}</span>}
             </div>
             <div className="form-group">
-                <label htmlFor="description">Project Description</label>
-                <textarea id="description" {...register("description")} />
-                {errors.description && <span className="error">{errors.description.message}</span>}
+                <label htmlFor="description">Short Description</label>
+                <textarea id="description" {...register("shortDesc")} />
+                {errors.shortDesc && <span className="error">{errors.shortDesc.message}</span>}
+            </div>
+            <div className="form-group">
+                <label htmlFor="longDesc">Long Description</label>
+                <textarea id="desc" {...register("desc")}></textarea>
+                {errors.desc && <span className="error">{errors.desc.message}</span>}
+            </div>
+            <div className="form-group">
+                <label htmlFor="gitspediaLink">Gitspedia Link</label>
+                <input id="gitspediaLink" {...register("gitspediaLink")} />
+                {errors.gitspediaLink && <span className="error">{errors.gitspediaLink.message}</span>}
+            </div>
+        </div>
+        </>),
+        (<>
+        <div key="form-page-2" className="form-page">
+            <div className='form-group'>
+                <label>Release Date</label>
+                <input type="date" id="release_date" {...register("release_date", {valueAsDate: true})} />
+                {errors.release_date && <span className="error">{errors.release_date.message}</span>}
+            </div>
+            <div className="form-group">
+                <label htmlFor="tags">Tags</label>
+                <input id="tags" {...register("tags")} />
+                {errors.tags && <span className="error">{errors.tags.message}</span>}
+            </div>
+            <div className="form-group">
+                <label htmlFor="percentage">Completion Percentage</label>
+                <input id="percentage" type="number" {...register("percentage", {valueAsNumber: true})} />
+                {errors.percentage && <span className="error">{errors.percentage.message}</span>}
+            </div>
+            <div className="form-group">
+                <label htmlFor="display_img_link">Display Image Link</label>
+                <input id="display_img_link" {...register("display_img_link")} />
+                {errors.display_img_link && <span className="error">{errors.display_img_link.message}</span>}
             </div>
         </div>
         </>)
