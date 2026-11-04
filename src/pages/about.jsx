@@ -9,7 +9,7 @@ export const AboutPage = () => {
    
     const secTitles = ["Our Personality", "Our Values", "Our Pricing Strategy", "Our Product Variety", "Our Head"]
     const secDescs = [(<>
-    <div className="split-section">
+    <div className="about-split-section">
          <div>
             <img src={cmsLogo}/>
         </div>
@@ -19,7 +19,7 @@ export const AboutPage = () => {
         </div>
     </div>
     </>), (<>
-    <div className="split-section">
+    <div className="about-split-section">
         <div>
             <img></img>
         </div>
@@ -55,7 +55,7 @@ export const AboutPage = () => {
         </div>
         </>
     ), (<>
-    <div className="split-section">
+    <div className="about-split-section">
         <div>
             <img></img>
         </div>
@@ -80,12 +80,17 @@ export const AboutPage = () => {
     return (
         <>
             <title>About | Crescent Moon Studio</title>
-             <div className="center about-title-card">
+             <div className="about-title-card">
                 <h1>About</h1>
                 <img src={cmsLogo} width={100}/>
             </div>
             <div>
-                <Section add_class="about-content-title" title={<>We are <i>many</i> things...</>} description={<><p>But if we could describe our studio in one word, it would be: </p> <h2>unique.</h2> <p>But if you want to learn more about what makes {BASE_DATA.STUDIO_NAME} what it is, then please continue reading. <br></br> <i>Click on each of the headers below.</i><br></br>Or if you want to go into even more detail, <Link to={"https://www.gitspedia.org/cms"}>check out the Gitspedia article about the studio.</Link></p></>}/>
+                <div className="about-content-title">
+                    <h2>We are <i>many</i> things...</h2>
+                    <p>But if we could describe our studio in one word, it would be: </p>
+                    <h2>unique.</h2>
+                    <p>But if you want to learn more about what makes {BASE_DATA.STUDIO_NAME} what it is, then please continue reading. <br></br> <i>Click on each of the headers below.</i><br></br>Or if you want to go into even more detail, <Link to={"https://www.gitspedia.org/cms"}>check out the Gitspedia article about the studio.</Link></p>
+                </div>
                 <Section add_class="about-content-parent">
                      {secTitles.map((val, i) => {
                     return (

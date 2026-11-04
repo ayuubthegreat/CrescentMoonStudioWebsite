@@ -1,0 +1,77 @@
+.home-title-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 400px;
+}
+.home-title-section-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border: 5px solid black; /* Optional: adds a dark overlay for better text readability */
+}
+
+.home-split-section {
+    display: grid;
+    border: 5px solid black;
+        gap: 2rem;
+    margin-top: 2rem;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(207, 206, 206, 0.9); /* Optional: adds a light background for better readability */
+}
+.home-split-section-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-left: 5px solid black;
+    padding: 2rem;
+    background-color: rgba(233, 231, 231, 0.9); /* Optional: adds a light background for better readability */
+}
+.home-text-section {
+    background-color: rgba(233, 231, 231, 0.9); /* Optional: adds a light background for better readability */
+    padding: 2rem;
+    width: 100%;
+    max-width: 800px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+.home-text-section-parent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    
+    margin-top: 2rem;
+     border: 5px solid black;
+     background-color: black;
+}
+.gitspedia-logo {
+    max-width: 500px;
+    margin: 1rem 0;
+    background-color: rgba(255, 253, 253, 1);
+    border-radius: 10px; /* Optional: adds a light background for better readability */
+}
+.home-text-section h2 .home-split-section-text h2 {
+    font-size: 3rem;
+}
+
+
+
+@media (max-width: 768px) {
+    .home-split-section {
+        display: block;
+    }
+    .home-split-section-text {
+        text-align: center;
+        align-items: center;
+    }
+}

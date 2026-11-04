@@ -1,16 +1,19 @@
 import { Link } from "react-router-dom";
 import Section from "../components/Section";
+import './termsOfServicePage.css'
 
 export default function TermsOfService()  {
     return (
         <>
         <title>Terms of Service | Crescent Moon Studio</title>
-        <Section add_class="terms-of-service-page center">
-            <Section add_class="terms-of-service-header" title="Download the terms of service here."></Section>
+        <Section add_class="terms-of-service-page">
             <Section add_class="terms-of-service-content">
-                <p style={{fontWeight: "bold"}}>Revised October 19th, 2026</p>
+                <div className="terms-of-service-content-header">
+                    <p style={{fontWeight: "bold"}}>Revised October 19th, 2026</p>
                 <h1>(Readable) Terms of Service</h1>
                 <h3>Must be signed when using any service of Crescent Moon Studio</h3>
+                    </div> 
+                
                 <div className="body-content">
                     <ol>
                     <li><strong>People eligible to use Crescent Moon Studio's services must pass the following criteria:</strong>
@@ -31,7 +34,6 @@ export default function TermsOfService()  {
                     </li>
                 </ol>
                 </div>
-                <p>&copy; 2026 Crescent Moon Studio. All rights reserved.</p>
             </Section>
         </Section>
         

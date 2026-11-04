@@ -7,9 +7,11 @@ import { useSelector } from "react-redux";
 import "./products.css"
 import { url } from "zod";
 import { useState } from "react";
+import ButtonBox from "../components/ButtonBox";
+import { Calendar, CheckCircle } from "lucide-react";
 
 
-export function ScheduledProductsPage() {
+export function ScheduledProjectsPage() {
 
      const {projects} = useSelector((state) => state.projects);
      const {user} = useSelector((state) => state.user);
@@ -26,11 +28,12 @@ export function ScheduledProductsPage() {
     return (
         <>
         <title>Scheduled Projects | Crescent Moon Studio</title>
-        <div className="page-header">
-            <h1>Scheduled Projects</h1>
-            <p>This is where you can find our projects, hard at work at our studio.</p>
+        <div className="scheduled-projects-page-header">
+            <h1><Calendar/> Scheduled Projects</h1>
+            <p>This is where you can find our projects, hard at work at our studio. <br></br> Click below to see our finished projects!</p>
+             <ButtonBox buttonTextArr = {["See Finished Projects"]} linkArr={["/finished-projects"]} />
         </div>
-        <GridSection maxWidth={300}>
+        <div className="scheduled-projects-card-parent">
             {loadedProjects.length > 0 && ([...loadedProjects].sort((a, b) => new Date(a.release_date) - new Date(b.release_date)).filter((val) => val.percentage < 100).map((val) => {
                 const productionPhase = getStageOfProduction(Math.min(Math.max(val.percentage, -2), 100));
                 const beganProduction = val.percentage >= 0;
@@ -44,8 +47,8 @@ export function ScheduledProductsPage() {
 const img = images[val.relative_image_link];
                 return (
                     <>
-                    <Section background_img_style={`url(${img})`}>
-                        <div className="project-card">
+                    <div className="project-card" style={{backgroundImage: `url(${img})`}}>
+                        <div >
                             {user && user.role != "USER" && (
                                 <Link to={`/edit-project/${val.id}`}>Edit Project</Link>
                             )}
@@ -64,12 +67,12 @@ const img = images[val.relative_image_link];
                         <h3>Planned release date: {releaseDate.toLocaleDateString(undefined, {year: "numeric", month: "long", day: "numeric"})}</h3>  
                         <Link to={val.gitspedia_href}>View Details on Gitspedia</Link>
                         </div>
-                    </Section>
+                    </div>
                     </>
                 )
             }))}
             
-        </GridSection>
+        </div>
         {loadedProjects.length === 0 && (<>
             <p className="center">No projects are currently available here. Check back later!</p>
             </>)}
@@ -77,7 +80,7 @@ const img = images[val.relative_image_link];
     )
 }
 
-export function ProductsPage() {
+export function FinishedProjectsPage() {
    const {projects} = useSelector((state) => state.projects);
   const {user} = useSelector((state) => state.user);
    const getTags = function(proj) {
@@ -99,10 +102,11 @@ export function ProductsPage() {
    }
     return (
         <>
-        <title>Products | Crescent Moon Studio</title>
-         <div className="page-header">
-            <h1>Products</h1>
-            <p>This is where you can find the products that we have released, and where to find them.</p>
+        <title>Finished Projects | Crescent Moon Studio</title>
+         <div className="products-page-header">
+            <h1><CheckCircle/> Finished Projects</h1>
+            <p>This is where you can find the projects that we have released, and where to find them. <br></br> Click below to see our scheduled projects!</p>
+            <ButtonBox buttonTextArr = {["See Scheduled Projects"]} linkArr={["/projects-scheduled"]} />
         </div>
         <div className="tag-container">
           {filteredTag === null ? (<>
@@ -156,7 +160,7 @@ const img = images[val.relative_image_link];
             })}
         </GridSection>
         {finishedProjects.length === 0 && (<>
-        <p className="center">No projects have been finished....come back later!</p>
+        <p className="error-text">No projects have been finished....come back later!</p>
         </>)}
         </>
     )

@@ -1,45 +1,99 @@
 .about-title-card {
-    padding: 0px;
-    border: 5px solid transparent;
-    background-color: transparent;
-    color: bisque;
-    font-size: large;
-    min-width: fit-content;
-    background:
-        linear-gradient(gray, rgb(170, 168, 168)) padding-box,
-        linear-gradient(90deg, rgb(255, 255, 255), gray, rgb(253, 251, 251)) border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+.about-content-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  
+}
+.about-content-title a {
+    display: block;
+    color: #007bff;
+    text-decoration: none;
+    border: none;
+    background: none;
+    padding: 0;
+    width: fit-content;
+}
+.about-content-title a:hover {
+    text-decoration: underline;
+}
+.about-title-card {
+    /* Keep the rest of your existing styles */
+    background: linear-gradient(90deg, #989899, #f3f4f5, #c9b5a1);
+    background-size: 300% 300%;
+    animation: gradient-shift 10s ease infinite;
 }
 
-.about-content-title {
-    margin-top: 50px;
-    border: 10px solid transparent;
-    padding: 10px 20px;
-    background: 
-        linear-gradient(black, gray, black) padding-box,
-        linear-gradient(90deg, rgb(48, 47, 96), gray, rgb(48, 47, 96)) border-box;
+@keyframes gradient-shift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+.about-content-parent {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 2rem;
+}
+.about-content-card-title {
+    transition: background 0.3s ease, padding 0.3s ease;
+}
+.about-content-card-title:hover {
+    padding: 10px;
+    cursor: pointer;
+    background: linear-gradient(90deg, #c2c0c0, #f3f4f5, #c2c0c0);
+    background-size: 300% 300%;
+    animation: gradient-shift 10s ease infinite;
+}
+.about-split-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 .about-content-card {
-    padding: 2px 20px;
-    background-color: rgb(199, 194, 194);
-}
-.about-content-card .split-section {
-    border-bottom: 5px solid black;
     align-items: center;
-}
-.about-title-card img {
-    width: 30vw;
-    min-width: 100px;
-    max-width: 200px;
-}
-.about-content-title a, .about-content-card a {
-    border: none;
-    padding: 0;
-    color: blue;
-    text-decoration: underline;
+    justify-content: center;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 2rem;
 }
 .about-content-card img {
     max-width: 100%;
 }
-.error-text {
-    color: red;
+
+@media (prefers-reduced-motion: reduce) {
+    .about-title-card {
+        animation: none;
+    }
+}
+.about-title-card img {
+    max-width: 200px;
 }

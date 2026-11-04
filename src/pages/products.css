@@ -1,11 +1,12 @@
-.page-header {
+.scheduled-projects-page-header, .products-page-header {
     color: black;
     background-color: gray;
     padding: 1vw;
     text-align: center;
     margin-bottom: 3vw;
+    width: 100%;
 }
-.tag-container {
+.project-tag-container {
     padding: 1vw;
     display: flex;
     flex-direction: row;
@@ -19,7 +20,9 @@
     padding: 8px;
 }
 .project-card {
-    background-color:  rgba(255, 255, 255, 0.7);
+    background-size: cover;
+    background-position: center;
+    background-color:  rgba(255, 255, 255, 0.6);
     padding: 20px;
     border-radius: 5px;
 }
@@ -53,5 +56,18 @@ color: white;
 border-radius: 10px;
 border: 3px solid black;
 transition: padding 0.5s;
+}
+.error-text {
+    color: red;
+    font-weight: bold;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 40px;
+}
+.scheduled-projects-card-parent {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 3vw;
+    width: 100%;
 }
 

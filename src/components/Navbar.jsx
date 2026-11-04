@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
 import ButtonBox from "./ButtonBox"
-import "./components.css"
+import "./Navbar.css"
 import Section from "./Section"
 import cmsLogo from "../assets/cmsLogo.png"
 import { useState } from "react"
@@ -11,14 +11,14 @@ export default function Navbar() {
     const nav = useNavigate();
     const dispatch = useDispatch();
     const [isEnabled, setIsEnabled] = useState(false);
-    const navbarButtonsNames = ["About Us", "Products", "Schedule"]
-    const navbarButtonsLinks = ["/about", "/finished-products", "/products-schedule"]
+    const navbarButtonsNames = ["About Us", "Projects", "Services"]
+    const navbarButtonsLinks = ["/about", "/finished-projects", "/services"]
     const {user, isFromExternal} = useSelector((state) => state.user);
     return (
         <>
         <nav className="navbar">
             <Section children={<>
-                <img className="title-img" onClick={() => {
+                <img className="navbar-title-img" onClick={() => {
                     if (!isFromExternal) {
                         nav('/')
                     }
@@ -28,7 +28,7 @@ export default function Navbar() {
                 <ButtonBox buttonTextArr={navbarButtonsNames} linkArr={navbarButtonsLinks}></ButtonBox>
                 {user && (
                     <div className="navbar-user-profile">
-                        <p className="navbar-user-profile-text">Welcome, {user.username}!</p>
+                        <button className="navbar-user-profile-button" onClick={() => {nav('/profile')}}>Profile</button>
                        <button className="navbar-user-profile-button" onClick={() => {
                             dispatch(logout());
                             nav('/');
@@ -44,13 +44,14 @@ export default function Navbar() {
                 <button className="navbar-small-display-button" onClick={(e) => {
                     setIsEnabled(!isEnabled);
                 }}>=</button>
-                <div className="navbar-small-display-menu" style={{display: (isEnabled ? "block" : "none")}}>
+                <div className="navbar-small-display-menu" style={{display: (isEnabled ? "flex" : "none")}}>
                     <ButtonBox buttonTextArr={navbarButtonsNames} linkArr={navbarButtonsLinks} onClick={() => {setIsEnabled(false)}}></ButtonBox>
                     {user && (
                     <div className="navbar-user-profile">
                         <p className="navbar-user-profile-text">Welcome, {user.username}!</p>
-                        <button className="navbar-user-profile-button" onClick={() => {nav('/profile')}}>Profile</button>
+                        <button className="navbar-user-profile-button" onClick={() => { setIsEnabled(false); nav('/profile')}}>Profile</button>
                         <button className="navbar-user-profile-button" onClick={() => {
+                            setIsEnabled(false);
                             dispatch(logout());
                             nav('/');
                         }}>Logout</button>

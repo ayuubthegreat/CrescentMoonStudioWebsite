@@ -1,4 +1,4 @@
-import "./components.css"
+
 
 
 export default function Section({ title = "", description = "", children, add_class = "", id = "", height, onClick = ((id) => {}), background_img_style = "" }) {

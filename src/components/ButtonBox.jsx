@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import './components.css'
+import './ButtonBox.css'
 export default function ButtonBox({add_class = "", buttonTextArr = [""], linkArr = [""], onClick = () => {}}) {
 
     return (

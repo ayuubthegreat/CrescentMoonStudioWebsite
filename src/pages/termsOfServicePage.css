@@ -1,0 +1,23 @@
+.terms-of-service-page {
+    padding: 20px;
+}
+.terms-of-service-content-header {
+    text-align: center;
+}
+.terms-of-service-page a {
+    display: inline;
+    color: #007bff;
+    text-decoration: none;
+    border: none;
+    padding: 0;
+    background: none;
+}
+.terms-of-service-page a:hover {
+    text-decoration: underline;
+}
+.terms-of-service-content {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border: 10px solid #070707;
+    max-width: 800px;
+}

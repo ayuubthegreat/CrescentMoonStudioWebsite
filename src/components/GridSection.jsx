@@ -1,4 +1,4 @@
-import "./components.css"
+import "./GridSection.css"
 
 
 export default function GridSection({maxWidth= 100, children}) {

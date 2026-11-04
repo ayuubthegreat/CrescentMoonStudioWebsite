@@ -9,7 +9,7 @@ import Home from './pages/home'
 import Footer from './components/Footer'
 import PageNotFound from './pages/pageNotFound'
 import TermsOfService from './pages/termsOfService'
-import { ScheduledProductsPage, ProductsPage } from './pages/products'
+import { ScheduledProjectsPage, FinishedProjectsPage } from './pages/products'
 import { AboutPage } from './pages/about'
 import { ContactUsPage } from './pages/contact-us'
 import { useDispatch, useSelector } from 'react-redux'
@@ -36,12 +36,13 @@ function App() {
     
     <BrowserRouter>
      <Navbar/>
-    <Routes>
+     <div className='page-shell'>
+      <Routes>
       <Route path='/' element={<Home/>}/>
       <Route path='/terms' element={<TermsOfService/>}/>
       <Route path='*' element={<PageNotFound/>}/>
-      <Route path='/products-schedule' element={<ScheduledProductsPage/>}/>
-      <Route path='/finished-products' element={<ProductsPage/>}/>
+      <Route path='/projects-scheduled' element={<ScheduledProjectsPage/>}/>
+      <Route path='/finished-projects' element={<FinishedProjectsPage/>}/>
       <Route path='/about' element={<AboutPage/>}/>
       <Route path='/contact' element={<ContactUsPage/>}/>
       <Route path='/create-project' element={<AuthenticationFirewall needsAuthentication={true}><CreateUpdateProjectPage/></AuthenticationFirewall>}/>
@@ -53,6 +54,7 @@ function App() {
       ))}
 
     </Routes>
+     </div>
     {!isFromExternal && <Footer/>}
     </BrowserRouter>
     </>
