@@ -48,23 +48,23 @@ export const CreateUpdateProjectPage = ({project = null}) => {
     };
     const formPages = [
         (<>
-        <div key="form-page-1" className="form-page">
-            <div className="form-group">
+        <div key="create-update-project-form-page-1" className="form-page create-update-project-form-page">
+            <div className="form-group create-update-project-form-group">
                 <label htmlFor="title">Name</label>
                 <input id="title" {...register("title")} />
                 {errors.title && <span className="error">{errors.title.message}</span>}
             </div>
-            <div className="form-group">
+            <div className="form-group create-update-project-form-group">
                 <label htmlFor="description">Short Description</label>
                 <textarea id="description" {...register("shortDesc")} />
                 {errors.shortDesc && <span className="error">{errors.shortDesc.message}</span>}
             </div>
-            <div className="form-group">
+            <div className="form-group create-update-project-form-group">
                 <label htmlFor="description">Long Description</label>
                 <textarea id="description" {...register("description")}></textarea>
                 {errors.description && <span className="error">{errors.description.message}</span>}
             </div>
-            <div className="form-group">
+            <div className="form-group create-update-project-form-group">
                 <label htmlFor="gitspedia_href">Gitspedia Link</label>
                 <input id="gitspedia_href" {...register("gitspedia_href")} />
                 {errors.gitspedia_href && <span className="error">{errors.gitspedia_href.message}</span>}
@@ -72,23 +72,23 @@ export const CreateUpdateProjectPage = ({project = null}) => {
         </div>
         </>),
         (<>
-        <div key="form-page-2" className="form-page">
-            <div className='form-group'>
+        <div key="form-page-2" className="form-page create-update-project-form-page">
+            <div className='form-group create-update-project-form-group'>
                 <label>Release Date</label>
                 <input type="date" id="release_date" {...register("release_date")} onChange={(e) => setValue("release_date", e.target.value)} />
                 {errors.release_date && <span className="error">{errors.release_date.message}</span>}
             </div>
-            <div className="form-group">
+            <div className="form-group create-update-project-form-group">
                 <label htmlFor="tags">Tags</label>
                 <input id="tags" {...register("tags")} />
                 {errors.tags && <span className="error">{errors.tags.message}</span>}
             </div>
-            <div className="form-group">
+            <div className="form-group create-update-project-form-group">
                 <label htmlFor="percentage">Completion Percentage</label>
                 <input id="percentage" type="number" {...register("percentage", {valueAsNumber: true})} />
                 {errors.percentage && <span className="error">{errors.percentage.message}</span>}
             </div>
-            <div className="form-group">
+            <div className="form-group create-update-project-form-group">
                 <label htmlFor="relative_image_link">Display Image Link</label>
                 <input id="relative_image_link" {...register("relative_image_link")} />
                 {errors.relative_image_link && <span className="error">{errors.relative_image_link.message}</span>}
@@ -102,7 +102,7 @@ export const CreateUpdateProjectPage = ({project = null}) => {
             <div className="create-update-project-page">
                 <form onSubmit={handleSubmit(onSubmit)}>
                     {formPages[currentPage]}
-                    <div className="form-navigation">
+                    <div className="navigation-panel create-update-project-navigation">
                     <button type="button" onClick={() => setCurrentPage(currentPage - 1)} disabled={currentPage === 0}>Previous</button>
                     <p>{currentPage + 1} / {formPages.length}</p>
                     <button type="button" onClick={() => setCurrentPage(currentPage + 1)} disabled={currentPage === formPages.length - 1}>Next</button>

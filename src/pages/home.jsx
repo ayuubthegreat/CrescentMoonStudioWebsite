@@ -23,7 +23,7 @@ export default function Home() {
                 <div className="home-text-section">
                     <h2>We Provide General IT Services</h2>
                     <p>Book a consultation with us to learn more about our services.</p>
-                    <ButtonBox buttonTextArr={["Our Services", "Book Appointment"]} linkArr={["/services", "/book-appointment"]}/>
+                    <ButtonBox buttonTextArr={["Our Services", "Book Appointment"]} linkArr={["/services", "/book-appointment"]} onClick={() => {window.scrollTo({top: 0, behavior: "smooth"})}}/>
                 </div>
             </div>
             <div className="home-split-section" style={{gridTemplateColumns: "0.5fr 1fr"}}>
@@ -31,25 +31,25 @@ export default function Home() {
                 <div className="home-split-section-text">
                     <h2>Come See Our Uniqueness</h2>
                     <p>We are the House of Variety. <br></br><strong>Want us to prove it? Come see our projects.</strong></p>
-                    <ButtonBox buttonTextArr={["Our Projects"]} linkArr={["/finished-products"]}></ButtonBox>
+                    <ButtonBox buttonTextArr={["Our Projects"]} linkArr={["/finished-projects"]} onClick={() => {window.scrollTo({top: 0, behavior: "smooth"})}}></ButtonBox>
                 </div>
             </div>
             <div className="home-split-section" style={{gridTemplateColumns: "1fr 0.7fr"}}>
                 <div className="home-split-section-text">
                     <h2>Want to See When Your Favorite Project is Coming Out?</h2>
                     <p>No problem! <br></br>Just look at our schedule.</p>
-                    <ButtonBox buttonTextArr={["Project Schedule"]} linkArr={["/products-schedule"]}></ButtonBox>
+                    <ButtonBox buttonTextArr={["Project Schedule"]} linkArr={["/projects-scheduled"]} onClick={() => {window.scrollTo({top: 0, behavior: "smooth"})}}></ButtonBox>
                 </div> 
                 <img className="img" src={kamReadingABook}/>
             </div>
             <div className="home-split-section " style={{gridTemplateColumns: "1fr 1fr"}}>
                 <div className="home-split-section-text">
                     <h2>Do you want to enroll with us?</h2>
-                    <ButtonBox buttonTextArr={["See Job Listings", "Submit Application"]} linkArr={["/job-listings", "/submit-job-application"]}/>
+                    <ButtonBox buttonTextArr={["See Job Listings", "Submit Application"]} linkArr={["/job-listings", "/submit-job-application"]} onClick={() => {window.scrollTo({top: 0, behavior: "smooth"})}}/>
                 </div>
                  <div className="home-split-section-text">
                     <h2>If not, that's okay too! Support our work through a donation.</h2>
-                    <ButtonBox buttonTextArr={[(<><HandCoins /> Donate</>)]} linkArr={["/donate"]}/>
+                    <ButtonBox buttonTextArr={[(<><HandCoins /> Donate</>)]} linkArr={["/donate"]} onClick={() => {window.scrollTo({top: 0, behavior: "smooth"})}}/>
                 </div>
             </div>
             <div className="home-text-section-parent">

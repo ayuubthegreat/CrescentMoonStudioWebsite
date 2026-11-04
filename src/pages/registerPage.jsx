@@ -9,6 +9,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { userRegisterSchema, RegisterUser } from '../slices/userSlice';
 import Section from '../components/Section';
 import './registerPage.css';
+import ButtonBox from '../components/ButtonBox';
 
 export default function registerPage() {
     const {user, isFromExternal} = useSelector((state) => state.user);
@@ -49,22 +50,28 @@ export default function registerPage() {
         <>
         <title>Register | Crescent Moon Studio</title>
         <div className="register-section">
-        <Section title="Register" description={<>
-            <h4>Create an account to get started</h4>
+        <div className="register-header-section">
+            <h1>Register</h1>
+            <h4>Create a Crescent Account to get started</h4>
             <p>Fill in the details below to create your account.</p>
-            </>} />
-            <form className='register-form' onSubmit={handleSubmit(onSubmit)}>
-                <div className='register-form-group'>
+        </div>
+        <div className='info'>
+            <h3>Why should I sign up for a Crescent Account?</h3>
+            <p>Good question. Here's your answer.</p>
+            <ButtonBox buttonTextArr={["Benefits of a Crescent Account"]} linkArr={["/crescent-acc-benefits"]}/>
+        </div>
+            <form className='form-page register-form' onSubmit={handleSubmit(onSubmit)}>
+                <div className='form-group register-form-group'>
                 <label>Username</label>
                 <input placeholder="Enter your username" {...register('username')} />
                 {errors.username && <span>{errors.username.message}</span>}
             </div>
-            <div className='register-form-group'>
+            <div className='form-group register-form-group'>
                 <label>Email</label>
                 <input placeholder="Enter your email" {...register('email')} />
                 {errors.email && <span>{errors.email.message}</span>}
             </div>
-            <div className='register-form-group'>
+            <div className='form-group register-form-group'>
                 <label>Password</label>
                 <input type="password" placeholder="Enter your password" {...register('password')} />
                 {errors.password && <span>{errors.password.message}</span>}

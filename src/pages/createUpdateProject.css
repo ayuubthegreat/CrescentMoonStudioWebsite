@@ -1,13 +1,10 @@
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+.create-update-project-page {
     
 }
-.form-navigation {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
+.create-update-project-form-group {
+    
 }
+.create-update-project-form-group input {
+
+}
+

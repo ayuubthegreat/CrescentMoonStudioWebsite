@@ -50,15 +50,17 @@ export default function loginPage() {
     return (
         <>
         <title>Login | Crescent Moon Studio</title>
-        <div className="login-section">
-        <Section add_class="login-intro-section" title="Sign in" description={`${isFromExternal ? `Login to continue to ${redirectService}` : ""}`} />
- <form className='login-form' onSubmit={handleSubmit(onSubmit)}>
-            <div className='login-form-group'>
+        <div className='login-intro-section'>
+            <h1>Sign in</h1>
+            <p>{isFromExternal ? `Login to continue to ${redirectService}` : ""}</p>
+        </div>
+ <form className='form-page login-form' onSubmit={handleSubmit(onSubmit)}>
+            <div className='form-group login-form-group'>
                 <label>Email</label>
                 <input placeholder="Enter your email" {...register('email')} />
                 {errors.email && <span>{errors.email.message}</span>}
             </div>
-            <div className='login-form-group'>
+            <div className='form-group login-form-group'>
                 <label>Password</label>
                 <input type="password" placeholder="Enter your password" {...register('password')} />
                 {errors.password && <span>{errors.password.message}</span>}
@@ -68,7 +70,6 @@ export default function loginPage() {
                 <p>Don't have an account? <Link to={`/register${isFromExternal ? `/${redirectService}` : ""}`}>Register here</Link>.</p>
             </div>
         </form>
-        </div>
         </>
     )
 }
