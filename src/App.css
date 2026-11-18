@@ -161,6 +161,7 @@ popup {
     background-color: white;
     width: 50%;
     height: 50%;
+    overflow-y: scroll;
 }
 appendableList {
     display: flex;
@@ -169,7 +170,7 @@ appendableList {
     align-items: center;
 }
 listItem {
-    
+
 }
 @keyframes gradient-shift {
     0% {
@@ -191,7 +192,7 @@ listItem {
         flex-direction: column;   
         width: 100%;
     }
-    .form-group input,.form-group select {
+    .form-group input,.form-group select,.form-group textarea {
         width: 100%;
     }
     .form-arr-group {
@@ -202,4 +203,5 @@ listItem {
         max-height: 300px;
         width: 100%;
     }
+    
 }
