@@ -44,6 +44,11 @@ export const ProjectsSuccessCase = (state, action) => {
     state.projects = action.payload.data;
     console.log(`Found`, state.projects);
 }
+export const BusinessLogSuccessCase = (state, action) => {
+    state.loading = false;
+    state.logs = action.payload.data;
+    console.log(`Found`, state.logs);
+}
 export const FailedCase = (state, action) => {
     state.loading = false
     state.error = action.payload

@@ -13,7 +13,7 @@ export default function Footer() {
                     <img src={aiLessLogo} width={150}/>
                     <p>{BASE_DATA.STUDIO_NAME} has a <i>general</i> no-AI policy. <br></br> <Link className="simple-decoration" to={'/no-ai'} onClick={() => {window.scrollTo({top: 0})}}>See exceptions.</Link></p>
                 </div>
-                <ButtonBox buttonTextArr={["Terms of Service (readable!)"]} linkArr={["/terms"]} onClick={() => {window.scrollTo({top: 0})}}/>
+                <ButtonBox buttonTextArr={["Terms of Service (readable!)", "Business Logs"]} linkArr={["/terms", "/business-logs"]} onClick={() => {window.scrollTo({top: 0})}}/>
             </div>
             <p>&copy; 2026 {BASE_DATA.STUDIO_NAME}. All rights reserved.</p>
         </nav>

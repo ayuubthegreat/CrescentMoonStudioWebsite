@@ -1,0 +1,45 @@
+.business-log-page-header {
+    padding: 20px;
+    text-align: center;
+    background-color: aliceblue;
+    width: 80%;
+}
+.business-log-page-form {
+    width: 100%;
+}
+
+.business-log-popup {
+    width: 80%;
+    height: 80%;
+    padding: 10px;
+}
+.error {
+    background-color: red;
+    padding: 10px;
+    text-align: center;
+    width: 60%;
+    border-radius: 10px;
+}
+list {
+    align-items: center;
+}
+listItem {
+    width: 100%;
+    padding: 10px;
+    background-color: azure;
+}
+
+buttonNav {
+    z-index: 20;
+}
+tagList {
+    display: flex;
+    flex-direction: row;
+    gap: 3vw;
+}
+tag {
+    font-size: smaller;
+    background-color: coral;
+    padding: 10px;
+    border-radius: 10px;
+}

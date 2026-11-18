@@ -8,11 +8,11 @@ export const storeItemSchema = z.object({
     stock: z.number(),
     type: z.string(),
     ageRating: z.string(),
-    imageContent: z.object({
+    imageContent: z.array(z.object({
         relativeUrl: z.string(),
         altText: z.string()
-    }),
-    subscriptionDuration: z.int().optional() // Used if item is a subscription
+    })),
+    subscriptionDuration: z.number().optional() // Used if item is a subscription
 });
 export const initialState = {
     items: []

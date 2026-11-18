@@ -17,14 +17,19 @@ import { GetAllProjects } from './slices/projectsSlice'
 import { GetUserByID } from './slices/userSlice'
 import { CreateUpdateProjectPage } from './pages/createUpdateProject'
 import AuthenticationFirewall from './components/AuthenticationFirewall'
+import { Create_UpdateStoreItemPage } from './pages/createUpdateStoreItem'
+import { BusinessLogPage, CreateBusinessLogPage } from './pages/businessLogPage'
+import { GetBusinessLogs } from './slices/businessLogSlice'
 
 function App() {
   const [count, setCount] = useState(0)
   const dispatch = useDispatch();
   const {projects} = useSelector((state) => state.projects);
   const {isFromExternal} = useSelector((state) => state.user);
+  const {logs} = useSelector((state) => state.logs);
   useEffect(() => {
    dispatch(GetAllProjects());
+   dispatch(GetBusinessLogs());
    console.log("Projects found: " + projects);
    console.log(localStorage.getItem('c-account-user'))
    if (localStorage.getItem('c-account-user')) {
@@ -45,12 +50,18 @@ function App() {
       <Route path='/finished-projects' element={<FinishedProjectsPage/>}/>
       <Route path='/about' element={<AboutPage/>}/>
       <Route path='/contact' element={<ContactUsPage/>}/>
-      <Route path='/create-project' element={<AuthenticationFirewall needsAuthentication={true}><CreateUpdateProjectPage/></AuthenticationFirewall>}/>
+      <Route path='/create/project' element={<AuthenticationFirewall needsAuthentication={true}><CreateUpdateProjectPage/></AuthenticationFirewall>}/>
       <Route path='/login/*' element={<LoginPage/>}/>
       <Route path='/register/*' element={<RegisterPage/>}/>
       <Route path='/no-ai' element={<NoAIPolicyPage/>}/>
+      <Route path='/create/store-item' element={<AuthenticationFirewall needsAuthentication={true}><Create_UpdateStoreItemPage/></AuthenticationFirewall>}/>
+      <Route path='/create/business-log' element={<CreateBusinessLogPage/>}/>
+      <Route path='/business-logs' element={<BusinessLogPage/>}/>
       {projects.map((project) => (
         <Route key={project.id} path={`/edit-project/${project.id}`} element={<CreateUpdateProjectPage project={project}/>} />
+      ))}
+      {logs.map((log) => (
+        <Route key={log.id} path={`/edit-business-log/${log.id}`} element={<AuthenticationFirewall needsAuthentication={true} needsSuperAuthentication={true}><CreateBusinessLogPage businessLog={log}/></AuthenticationFirewall>}/>
       ))}
 
     </Routes>
